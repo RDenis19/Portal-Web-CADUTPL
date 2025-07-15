@@ -1,0 +1,233 @@
+/* Ruta: core/static/core/css/custom.css */
+
+/* --- FONDO PROFESIONAL CON PATRÓN DE LÍNEAS --- */
+body {
+    /* Base de color suave */
+    background-color: #f4f5f7; 
+    
+    /* Patrón de líneas sutiles color mostaza */
+    background-image: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 10%, transparent 10%),
+                      linear-gradient(225deg, rgba(218, 165, 32, 0.1) 10%, transparent 10%);
+    background-size: 20px 20px;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+/* Asegura que el contenido esté centrado verticalmente en la pantalla */
+.main-container {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- TARJETA DE LOGIN ELEGANTE --- */
+.card-login {
+    background-color: #ffffff; /* Fondo blanco puro para máximo contraste */
+    border: none;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Sombra más suave y difusa */
+    overflow: hidden; /* Asegura que los elementos internos respeten los bordes redondeados */
+    transition: all 0.3s ease;
+}
+
+.card-login:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+}
+
+.card-login .card-header {
+    background-color: transparent;
+    border-bottom: none;
+    padding-top: 2rem;
+}
+
+.card-login .card-body {
+    padding: 1rem 2.5rem 2.5rem 2.5rem; /* Ajuste de espaciado interno */
+}
+
+
+/* --- LOGO --- */
+.login-logo {
+    max-height: 80px;
+    width: auto;
+}
+
+
+/* --- TEXTOS DE BIENVENIDA --- */
+.welcome-title {
+    font-size: 1.5rem;
+    color: #172b4d; /* Color principal de Argon para consistencia */
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+    font-size: 1rem;
+    color: #525f7f; /* Color secundario de Argon */
+    margin-bottom: 2rem;
+}
+
+
+/* --- CAMPO DE CORREO --- */
+.input-group.input-group-alternative .form-control {
+    border-radius: 8px; /* Bordes redondeados para el input */
+}
+
+.form-control {
+    font-size: 1rem;
+    padding: 1.25rem 1rem; /* Input más alto para un look moderno */
+}
+
+.input-group-text {
+    color: #5e72e4 !important; /* Ícono del input en color primario */
+}
+
+
+/* --- BOTÓN DE INGRESO --- */
+.btn-ingresar {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.9rem;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: none; /* Quitamos la sombra por defecto para un look más plano */
+    transition: all 0.2s ease;
+    background: #172b4d; /* Color oscuro principal */
+    color: white;
+}
+
+.btn-ingresar:hover {
+    background: #5e72e4; /* Color primario de Argon al pasar el cursor */
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* core/static/core/css/custom.css */
+
+/* --- HEADER MEJORADO --- */
+.navbar-dark {
+    background-color: #0056b3 !important; /* Un azul más profesional y sólido */
+}
+
+.navbar-brand img {
+    height: 45px; /* Ligeramente más grande */
+    margin-right: 0.5rem;
+    filter: brightness(0) invert(1); /* Asegura que el logo blanco se vea */
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    padding: 0.75rem 1rem !important;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f0f0f0 !important;
+}
+
+.btn-outline-white {
+    color: white !important;
+    border-color: white !important;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-white:hover {
+    background-color: white !important;
+    color: #0056b3 !important;
+}
+
+.btn-white {
+    background-color: white !important;
+    color: #0056b3 !important;
+    transition: all 0.2s ease;
+}
+
+.btn-white:hover {
+    background-color: #f0f0f0 !important;
+}
+
+
+/* Ruta: core/static/core/css/custom.css */
+
+/* --- HEADER PROFESIONAL Y MODERNO --- */
+.header-global {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 0.5rem 0; /* Un poco más compacto */
+}
+
+.header-global .navbar-brand img {
+    height: 45px; /* Tamaño del logo ajustado */
+}
+
+/* Color del texto del menú */
+.header-global .navbar-nav .nav-link {
+    color: #32325d !important; /* Un azul oscuro, más legible sobre blanco */
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem !important;
+    transition: color 0.2s ease-in-out;
+}
+
+.header-global .navbar-nav .nav-link:hover,
+.header-global .navbar-nav .nav-item.active .nav-link {
+    color: #5e72e4 !important; /* Color primario de Argon al pasar el cursor */
+}
+
+/* Botón "Hazte Socio" */
+.btn-outline-primary {
+    border-width: 2px;
+    font-weight: 600;
+}
+
+/* Botón "Iniciar Sesión" */
+.btn-primary {
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* =================================================== */
+/* ==== ESTILOS PARA HEADER Y FOOTER (AÑADIR) ==== */
+/* =================================================== */
+
+/* Espacio superior en el body para compensar el header fijo */
+body {
+    padding-top: 80px; 
+}
+
+/* --- HEADER DEFINITIVO --- */
+.navbar {
+    padding: 0.75rem 0 !important;
+}
+
+.navbar-brand span {
+    font-weight: 600;
+    color: #32325d;
+    font-size: 1.1rem;
+    margin-left: 5px;
+}
+
+.navbar-nav .nav-link {
+    color: #525f7f !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #5e72e4 !important; /* Color primario de Argon */
+}
+
+/* Estilo para el enlace de la página activa */
+.navbar-nav .nav-item.active .nav-link {
+    color: #5e72e4 !important;
+    font-weight: 700;
+}
+
+/* Ajuste para los botones pequeños */
+.btn-sm.btn-icon .btn-inner--icon {
+    font-size: 0.875rem;
+}

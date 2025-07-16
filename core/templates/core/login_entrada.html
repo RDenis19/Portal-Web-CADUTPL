@@ -1,69 +1,61 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Ingreso - Caja de Ahorro Docentes</title>
-
+    <title>Ingreso - CAD UTPL</title>
+    
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
-    <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet"/>
-    <link href="{% static 'css/argon-design-system.css' %}" rel="stylesheet"/>
-
-    <link type="text/css" href="{% static 'core/css/custom.css' %}" rel="stylesheet"/>
+    
+    <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/argon-design-system.css' %}" rel="stylesheet" />
+    <link href="{% static 'core/css/custom.css' %}" rel="stylesheet" />
 </head>
 
-<body>
+<body class="login-page">
+    <main>
+        <div class="row no-gutters min-vh-100">
+            <div class="col-lg-7 d-flex align-items-center justify-content-center">
+                <div class="login-form-container">
+                    <h1 class="login-logo-top">
+                        <span class="logo-cad">CAD</span><span class="logo-utpl">UTPL</span>
+                    </h1>
 
-<main>
-    <section class="main-container">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-7">
-
-                    <div class="card card-login">
-                        <div class="card-header text-center">
-                            <img src="{% static 'core/img/logo_CAD.png' %}" alt="Logo Caja de Ahorro"
-                                 class="login-logo">
+                    <h2 class="login-title">Si eres docente, ingresa tu correo institucional</h2>
+                    
+                    <form role="form" method="POST" class="mt-4">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_email" class="form-control-label">Correo electrónico</label>
+                            <input class="form-control" type="email" name="email" id="id_email" required>
+                            <small class="form-text text-muted">dominio UTPL (utpl.edu.ec)</small>
                         </div>
-
-                        <div class="card-body">
-                            <div class="text-center">
-                                <h1 class="welcome-title">CAD UTPL</h1>
-                                <p class="welcome-subtitle">Si perteneces a la Asociación de Docentes, ingresa tu
-                                    correo.</p>
-                            </div>
-
-                            <form role="form" method="POST" class="mt-4">
-                                {% csrf_token %}
-
-                                <div class="form-group mb-3">
-                                    <div class="input-group input-group-alternative">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div>
-                                        <input class="form-control" type="email" name="email" required>
-                                    </div>
-                                </div>
-
-                                <div class="text-center">
-                                    <a href="{% url 'index' %}" class="btn btn-primary btn-block my-4 btn-login">Ingresar</a>
-                                </div>
-                            </form>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-ingresar">Ingresar</button>
                         </div>
+                    </form>
+
+                    <div class="decorative-logo-container">
+                        <div class="circle-1"></div>
+                        <div class="circle-2"></div>
+                        <div class="circle-3"></div>
+                        <img src="{% static 'core/img/logo_CAD.png' %}" alt="Logo Decorativo CAD UTPL" class="decorative-logo-image">
                     </div>
+                </div>
+            </div>
 
+            <div class="col-lg-5 login-promo-column d-flex justify-content-center align-items-center">
+                <div class="promo-box">
+                    <img src="{% static 'core/img/mujer-camara.png' %}" alt="Libertad Financiera" class="promo-image">
+                    <h2 class="promo-text">Caja de Ahorro, Semilla para tu Libertad Financiera.</h2>
                 </div>
             </div>
         </div>
-    </section>
-</main>
+    </main>
 
-<script src="{% static 'js/core/jquery.min.js' %}"></script>
-<script src="{% static 'js/core/popper.min.js' %}"></script>
-<script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
 </body>
-
 </html>

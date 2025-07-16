@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}CAD UTPL{% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    
+    <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/argon-design-system.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'core/css/custom.css' %}" rel="stylesheet" />
+
+    <style>
+        body {
+            padding-top: 99px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'index' %}" style="color: #32325d; font-weight: 600;">
+                    <img src="{% static 'core/img/logo_CAD.png' %}" alt="Logo CAD UTPL" style="height: 40px; margin-right: 10px;">
+                    CAD UTPL
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar_global">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">Inicio</a></li>
+                        <li class="nav-item"><a href="{% url 'ahorros' %}" class="nav-link">Ahorros</a></li>
+                        <li class="nav-item"><a href="{% url 'creditos' %}" class="nav-link">Créditos</a></li>
+                        <li class="nav-item"><a href="{% url 'servicios' %}" class="nav-link">Servicios</a></li>
+                        <li class="nav-item"><a href="{% url 'nosotros' %}" class="nav-link">Nosotros</a></li>
+                        <li class="nav-item"><a href="{% url 'noticias' %}" class="nav-link">Noticias</a></li>
+                    </ul>
+                    <ul class="navbar-nav align-items-lg-center">
+                         <li class="nav-item d-none d-lg-block">
+                            <a href="" class="btn btn-sm btn-outline-primary">Hazte Socio</a>
+                        </li>
+                        <li class="nav-item d-none d-lg-block ml-lg-2">
+                            <a href="{% url 'login' %}" class="btn btn-sm btn-primary">Iniciar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer bg-default">
+        <div class="container">
+            <div class="row pt-5 pb-4">
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <a href="{% url 'index' %}">
+                        <img src="{% static 'core/img/logo_CAD.png' %}" style="height: 45px; filter: brightness(0) invert(1);" alt="Logo CAD UTPL en Footer">
+                    </a>
+                    <p class="text-light mt-3" style="font-size: 0.9rem;">Comprometidos con el bienestar financiero de la comunidad docente.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6 class="text-white text-uppercase">Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'ahorros' %}" class="text-light">Ahorros</a></li>
+                        <li><a href="{% url 'creditos' %}" class="text-light">Créditos</a></li>
+                        <li><a href="{% url 'nosotros' %}" class="text-light">Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h6 class="text-white text-uppercase">Atención</h6>
+                    <ul class="list-unstyled text-light" style="font-size: 0.9rem;">
+                        <li>Lunes a Viernes</li>
+                        <li>8:00 - 17:00</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                     <h6 class="text-white text-uppercase">Contacto</h6>
+                     <ul class="list-unstyled text-light" style="font-size: 0.9rem;">
+                        <li class="mb-2"><i class="ni ni-pin-3 mr-2"></i> San Cayetano Alto, Loja, Ecuador</li>
+                        <li class="mb-2"><i class="ni ni-email-83 mr-2"></i> info@cadutpl.edu.ec</li>
+                        <li><i class="ni ni-mobile-button mr-2"></i> +593 7 370 1444</li>
+                     </ul>
+                </div>
+            </div>
+            <hr class="my-3" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row align-items-center justify-content-md-between pb-4">
+                <div class="col-md-6">
+                    <div class="copyright text-light" style="font-size: 0.85rem;">
+                        &copy; {% now "Y" %} <a href="{% url 'index' %}" class="font-weight-bold text-white">CAD UTPL</a>.
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <a href="#" class="btn btn-neutral btn-icon-only btn-twitter btn-round btn-sm" data-toggle="tooltip" data-original-title="Twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-sm" data-toggle="tooltip" data-original-title="Facebook">
+                        <i class="fa fa-facebook-square"></i>
+                    </a>
+                    <a href="#" class="btn btn-neutral btn-icon-only btn-instagram btn-round btn-sm" data-toggle="tooltip" data-original-title="Instagram">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="{% static 'js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/argon-design-system.js' %}"></script>
+
+    <script>
+        $(function() {
+            var current = location.pathname;
+            $('.navbar-nav .nav-item .nav-link').each(function() {
+                var $this = $(this);
+                if ($this.attr('href') === current) {
+                    $this.parent().addClass('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

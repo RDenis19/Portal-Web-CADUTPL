@@ -1,0 +1,206 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Hazte Socio - CAD UTPL{% endblock %}
+
+{% block content %}
+<main>
+  <!-- ========================================================= -->
+  <!-- SECCIÓN 1: HERO Y DESCARGA DE DOCUMENTOS                  -->
+  <!-- ========================================================= -->
+  <section class="section-shaped" style="background-color: #fdf7e6;">
+    <div class="container py-lg-md">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <a href="{% url 'index' %}" class="btn btn-sm btn-link text-primary px-0 mb-3"><i class="ni ni-bold-left"></i> Volver al Inicio</a>
+          <h1 class="display-3 text-primary">Hazte socio y construye tu <span class="text-warning">futuro financiero</span></h1>
+          <p class="lead text-dark">Únete a la comunidad que ahorra, invierte y crece con CADUTPL. Accede a créditos preferenciales y beneficios exclusivos.</p>
+          <div class="row">
+            <div class="col-md-12">
+              <a href="#" class="btn btn-primary my-2"><i class="ni ni-cloud-download-95"></i> Descargar Solicitud de Ingreso</a>
+              <a href="#" class="btn btn-primary my-2"><i class="ni ni-cloud-download-95"></i> Designación de Beneficiario</a>
+              <a href="#" class="btn btn-primary my-2"><i class="ni ni-cloud-download-95"></i> Autorización de Descuento</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card shadow-lg border-0" style="border: 2px dashed #dee2e6;">
+            <div class="card-body text-center p-5">
+              <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+                <i class="ni ni-cloud-upload-96"></i>
+              </div>
+              <h4 class="text-primary text-uppercase">Sube tus archivos</h4>
+              <p class="text-muted">Arrastra o haz clic para subir los PDF firmados. Se aceptan PDF y imágenes.</p>
+              <a href="#" class="btn btn-outline-primary">Seleccionar Archivos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SECCIÓN 2: FORMULARIO DE DATOS                            -->
+  <!-- ========================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <h2 class="display-3">Completa el Formulario</h2>
+          <p class="lead text-muted">Completa el formulario para poder seguir con tu solicitud y sea correctamente ingresada.</p>
+        </div>
+      </div>
+      <!-- El backend developer puede añadir aquí el action y method correctos -->
+      <form>
+        {% csrf_token %}
+        <div class="row">
+          <!-- Columna Datos Personales -->
+          <div class="col-md-6">
+            <h4 class="mb-4">Datos Personales</h4>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Nombre Completo">
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control" placeholder="Edad">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Dirección">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Correo Electrónico">
+            </div>
+          </div>
+          <!-- Columna Datos Laborales -->
+          <div class="col-md-6">
+            <h4 class="mb-4">Datos Laborales</h4>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Fecha de Nacimiento (dd/mm/aaaa)">
+            </div>
+             <div class="form-group">
+              <input type="text" class="form-control" placeholder="Teléfono">
+            </div>
+             <div class="form-group">
+              <input type="text" class="form-control" placeholder="Ciudad">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Facultad">
+            </div>
+             <div class="form-group">
+              <input type="text" class="form-control" placeholder="Cargo">
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col text-center">
+            <button type="submit" class="btn btn-warning btn-lg">Enviar Solicitud</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SECCIÓN 3: CÓMO FUNCIONA                                  -->
+  <!-- ========================================================= -->
+  <section class="section section-shaped">
+    <div class="shape shape-style-1 shape-primary">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <div class="container py-md">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <h2 class="display-3 text-white">¿Cómo funciona?</h2>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card card-lift--hover shadow border-0 h-100">
+            <div class="card-body py-5 text-center">
+              <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">1</div>
+              <h5 class="text-primary">Descarga y firma</h5>
+              <p class="description mt-3">Descarga los 3 formularios y fírmalos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card card-lift--hover shadow border-0 h-100">
+            <div class="card-body py-5 text-center">
+              <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">2</div>
+              <h5 class="text-primary">Completa el formulario</h5>
+              <p class="description mt-3">Completa los campos en esta página para poder enviar el formulario.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card card-lift--hover shadow border-0 h-100">
+            <div class="card-body py-5 text-center">
+              <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">3</div>
+              <h5 class="text-primary">Sube tu solicitud</h5>
+              <p class="description mt-3">Recibe confirmación de aprobación en 24 horas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card card-lift--hover shadow border-0 h-100">
+            <div class="card-body py-5 text-center">
+              <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">4</div>
+              <h5 class="text-primary">Espera tu Aceptación</h5>
+              <p class="description mt-3">Recibe en el correo información sobre la confirmación.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- SECCIÓN 4: PREGUNTAS FRECUENTES (FAQ)                     -->
+  <!-- ========================================================= -->
+  <section class="section section-lg" style="background-color: #052a62;">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <h2 class="display-3 text-white">Preguntas Frecuentes</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion" id="faqAccordion">
+            <div class="card">
+              <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h5 class="mb-0">¿Qué requisitos necesito para ser socio?</h5>
+              </div>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                <div class="card-body">
+                  Para ser socio, necesitas ser docente o personal administrativo de la UTPL, completar la solicitud de ingreso, y adjuntar una copia de tu cédula y el certificado de votación.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <h5 class="mb-0">¿Cuánto tiempo toma la aprobación?</h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                <div class="card-body">
+                  El proceso de aprobación suele tomar entre 24 a 48 horas hábiles una vez que hayamos recibido toda tu documentación completa y correcta.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <h5 class="mb-0">¿Qué beneficios obtengo como socio?</h5>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                <div class="card-body">
+                  Como socio, tienes acceso a tasas de interés preferenciales en créditos, mejores rendimientos en tus ahorros, participación en sorteos, y acceso a convenios y descuentos exclusivos.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+{% endblock %}

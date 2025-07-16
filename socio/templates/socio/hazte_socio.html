@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
-{% block title %}Hazte Socio - CAD UTPL{% endblock %}
+{% block title %}Hazte Socio - CADUTPL{% endblock %}
 
 {% block content %}
     <main>
@@ -12,35 +12,10 @@
             <div class="container py-lg-md">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-lg-6 mb-5 mb-lg-0">
-                        <a href="{% url 'index' %}" class="btn btn-sm btn-link text-primary px-0 mb-3"><i
-                                class="ni ni-bold-left"></i> Volver al Inicio</a>
                         <h1 class="display-3 text-primary">Hazte socio y construye tu <span class="text-warning">futuro financiero</span>
                         </h1>
                         <p class="lead text-dark">Únete a la comunidad que ahorra, invierte y crece con CADUTPL. Accede
                             a créditos preferenciales y beneficios exclusivos.</p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href="#" class="btn btn-primary my-2"><i class="ni ni-cloud-download-95"></i>
-                                    Descargar Solicitud de Ingreso</a>
-                                <a href="#" class="btn btn-primary my-2"><i class="ni ni-cloud-download-95"></i>
-                                    Designación de Beneficiario</a>
-                                <a href="#" class="btn btn-primary my-2"><i class="ni ni-cloud-download-95"></i>
-                                    Autorización de Descuento</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="card shadow-lg border-0" style="border: 2px dashed #dee2e6;">
-                            <div class="card-body text-center p-5">
-                                <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
-                                    <i class="ni ni-cloud-upload-96"></i>
-                                </div>
-                                <h4 class="text-primary text-uppercase">Sube tus archivos</h4>
-                                <p class="text-muted">Arrastra o haz clic para subir los PDF firmados. Se aceptan PDF y
-                                    imágenes.</p>
-                                <a href="#" class="btn btn-outline-primary">Seleccionar Archivos</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -58,51 +33,121 @@
                             correctamente ingresada.</p>
                     </div>
                 </div>
-                <!-- El backend developer puede añadir aquí el action y method correctos -->
-                <form>
+
+                ...
+                <!-- Cambia la etiqueta form -->
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="row">
-                        <!-- Columna Datos Personales -->
-                        <div class="col-md-6">
-                            <h4 class="mb-4">Datos Personales</h4>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre Completo">
-                            </div>
-                            <div class="form-group">
-                                <input type="number" class="form-control" placeholder="Edad">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Dirección">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Correo Electrónico">
-                            </div>
-                        </div>
-                        <!-- Columna Datos Laborales -->
-                        <div class="col-md-6">
-                            <h4 class="mb-4">Datos Laborales</h4>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Fecha de Nacimiento (dd/mm/aaaa)">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Teléfono">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Ciudad">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Facultad">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Cargo">
+
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <!-- Campo Cédula -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="id_cedula">Cédula</label>
+                                        {{ form.cedula.errors }}
+                                        <input type="text" class="form-control" id="id_cedula" name="cedula"
+                                               placeholder="Ej: 1102203304" required>
+                                    </div>
+                                </div>
+                                <!-- Campo Celular -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="id_celular">Celular</label>
+                                        {{ form.celular.errors }}
+                                        <input type="tel" class="form-control" id="id_celular" name="celular"
+                                               placeholder="Ej: 0987654321" required>
+                                    </div>
+                                </div>
+                                <!-- Campo Nombres -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="id_nombres">Nombres</label>
+                                        {{ form.nombres.errors }}
+                                        <input type="text" class="form-control" id="id_nombres" name="nombres"
+                                               placeholder="Tus nombres completos" required>
+                                    </div>
+                                </div>
+                                <!-- Campo Apellidos -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="id_apellidos">Apellidos</label>
+                                        {{ form.apellidos.errors }}
+                                        <input type="text" class="form-control" id="id_apellidos" name="apellidos"
+                                               placeholder="Tus apellidos completos" required>
+                                    </div>
+                                </div>
+                                <!-- Campo Email -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="id_email">Correo Electrónico</label>
+                                        {{ form.email.errors }}
+                                        <input type="email" class="form-control" id="id_email" name="email"
+                                               placeholder="tu.correo@ejemplo.com" required>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-4">
+
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-lg-8">
+                            <!-- Campo Solicitud de Ingreso -->
+                            <div class="d-flex align-items-center justify-content-between p-3 mb-3 rounded"
+                                 style="border: 1px solid #dee2e6;">
+                                <span class="font-weight-bold">1. Solicitud de Ingreso</span>
+                                {{ form.solicitud_ingreso.errors }}
+                                <div>
+                                    <a href="#" class="btn btn-info btn-sm mr-2">Descargar</a>
+                                    <label for="id_solicitud_ingreso" class="btn btn-outline-primary btn-sm mb-0">
+                                        Seleccionar Archivo
+                                        <input type="file" id="id_solicitud_ingreso" name="solicitud_ingreso"
+                                               accept=".pdf" hidden required>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Campo Designación de Beneficiario -->
+                            <div class="d-flex align-items-center justify-content-between p-3 mb-3 rounded"
+                                 style="border: 1px solid #dee2e6;">
+                                <span class="font-weight-bold">2. Designación de Beneficiario</span>
+                                {{ form.designacion_beneficiario.errors }}
+                                <div>
+                                    <a href="#" class="btn btn-info btn-sm mr-2">Descargar</a>
+                                    <label for="id_designacion_beneficiario"
+                                           class="btn btn-outline-primary btn-sm mb-0">
+                                        Seleccionar Archivo
+                                        <input type="file" id="id_designacion_beneficiario"
+                                               name="designacion_beneficiario" accept=".pdf"
+                                               hidden required>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Campo Autorización de Descuento -->
+                            <div class="d-flex align-items-center justify-content-between p-3 rounded"
+                                 style="border: 1px solid #dee2e6;">
+                                <span class="font-weight-bold">3. Autorización de Descuento</span>
+                                {{ form.autorizacion_descuento.errors }}
+                                <div>
+                                    <a href="#" class="btn btn-info btn-sm mr-2">Descargar</a>
+                                    <label for="id_autorizacion_descuento" class="btn btn-outline-primary btn-sm mb-0">
+                                        Seleccionar Archivo
+                                        <input type="file" id="id_autorizacion_descuento" name="autorizacion_descuento"
+                                               accept=".pdf" hidden required>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
                         <div class="col text-center">
                             <button type="submit" class="btn btn-warning btn-lg">Enviar Solicitud</button>
                         </div>
                     </div>
+                    
                 </form>
             </div>
         </section>

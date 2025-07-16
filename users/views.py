@@ -1,7 +1,6 @@
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 def login(request):
@@ -13,10 +12,17 @@ def login(request):
         # Autentica e inicia sesión
         user = form.get_user()
         auth_login(request, user)
-        # Respuesta temporal en texto plano
-        return HttpResponse(
-            "Inicio de sesión exitoso. Puedes acceder a las rutas protegidas."
-        )
+
+        # Redirige al usuario según su rol
+        if user.is_superuser:
+            # El superusuario va al admin de Django
+            return redirect('admin:index')
+        elif user.is_staff:
+            # El empleado (staff pero no superuser) va al dashboard de admin
+            return redirect('dashboard:dashboard_admin')
+        else:
+            # El socio (usuario normal) va a su propio dashboard
+            return redirect('dashboard:dashboard_socio')
 
     # Si es GET o el formulario es inválido, renderiza el formulario
     return render(request, "users/login.html", {"form": form})

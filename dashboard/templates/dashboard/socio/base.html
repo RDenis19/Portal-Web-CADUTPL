@@ -2,23 +2,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block dashboard_title %}Dashboard{% endblock %} - CAD UTPL</title>
     <!-- Estilos de Argon -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
-    <link type="text/css" href="{% static 'css/argon-design-system.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'css/argon-design-system.css' %}" rel="stylesheet"/>
     <!-- Estilos personalizados para el dashboard -->
     <style>
         body {
             background-color: #f8f9fe;
             padding-top: 0 !important; /* Anula el padding del base.html principal */
         }
+
         .dashboard-layout {
             display: flex;
         }
+
         .sidebar {
             width: 250px;
             height: 100vh;
@@ -27,52 +29,61 @@
             top: 0;
             background-color: #fff;
             padding: 1.5rem;
-            box-shadow: 0 0 2rem 0 rgba(136,152,170,.15);
+            box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15);
             z-index: 1000;
         }
+
         .main-content {
             margin-left: 250px;
             width: calc(100% - 250px);
             padding: 2rem;
         }
+
         .sidebar .nav-link {
             color: #525f7f;
             font-weight: 600;
             padding: .8rem 1rem;
             border-radius: .375rem;
         }
+
         .sidebar .nav-link.active, .sidebar .nav-link:hover {
             background-color: #ffd600; /* Color amarillo del botón activo */
             color: #32325d; /* Texto oscuro para contraste */
         }
+
         .sidebar .nav-link i {
             margin-right: 10px;
         }
+
         .sidebar-footer {
             position: absolute;
             bottom: 1.5rem;
             width: calc(100% - 3rem);
         }
+
         .top-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
         }
+
         .user-profile {
             display: flex;
             align-items: center;
             background-color: #fff;
             padding: 0.5rem 1rem;
             border-radius: 30px;
-            box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+            box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
         }
+
         .user-profile img {
             height: 40px;
             width: 40px;
             border-radius: 50%;
             margin-left: 1rem;
         }
+
         /* Ocultar el header y footer del base.html principal */
         body > header, body > footer {
             display: none !important;
@@ -80,85 +91,85 @@
     </style>
 </head>
 <body>
-    <div class="dashboard-layout">
-        <!-- =============================================== -->
-        <!--               SIDEBAR DEL SOCIO                 -->
-        <!-- =============================================== -->
-        <nav class="sidebar">
-            <div class="text-center mb-5">
-                <a href="{% url 'index' %}">
-                    <img src="{% static 'core/img/logo_CAD.png' %}" style="height: 50px;" alt="Logo CAD UTPL">
+<div class="dashboard-layout">
+    <!-- =============================================== -->
+    <!--               SIDEBAR DEL SOCIO                 -->
+    <!-- =============================================== -->
+    <nav class="sidebar">
+        <div class="text-center mb-5">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'core/img/logo_CAD.png' %}" style="height: 50px;" alt="Logo CAD UTPL">
+            </a>
+        </div>
+
+        <!-- ENLACES ESPECÍFICOS PARA EL SOCIO -->
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    <i class="ni ni-shop"></i> Inicio
                 </a>
-            </div>
-            
-            <!-- ENLACES ESPECÍFICOS PARA EL SOCIO -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="ni ni-chart-bar-32"></i> Simulador
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="ni ni-building"></i> Banca virtual
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="ni ni-hat-3"></i> Capacitación
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
-                        <i class="ni ni-shop"></i> Inicio
+                    <a class="nav-link" href="#">
+                        <i class="ni ni-single-02"></i> Mi perfil
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <i class="ni ni-chart-bar-32"></i> Simulador
+                        <i class="ni ni-settings-gear-65"></i> Configuración
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-building"></i> Banca virtual
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-hat-3"></i> Capacitación
+                    <a class="nav-link" href="{% url 'index' %}">
+                        <i class="ni ni-button-power"></i> Cerrar Sesión
                     </a>
                 </li>
             </ul>
+        </div>
+    </nav>
 
-            <div class="sidebar-footer">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="ni ni-single-02"></i> Mi perfil
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="ni ni-settings-gear-65"></i> Configuración
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">
-                            <i class="ni ni-button-power"></i> Cerrar Sesión
-                        </a>
-                    </li>
-                </ul>
+    <!-- =============================================== -->
+    <!--                 CONTENIDO PRINCIPAL             -->
+    <!-- =============================================== -->
+    <main class="main-content">
+        <div class="top-header">
+            <h1 class="h2">{% block page_title %}Página{% endblock %}</h1>
+            <div class="user-profile">
+                <span>{{ nombre_usuario }}</span>
+                <img src="{{ foto_perfil_url }}" alt="Foto de perfil">
             </div>
-        </nav>
+        </div>
 
-        <!-- =============================================== -->
-        <!--                 CONTENIDO PRINCIPAL             -->
-        <!-- =============================================== -->
-        <main class="main-content">
-            <div class="top-header">
-                <h1 class="h2">{% block page_title %}Página{% endblock %}</h1>
-                <div class="user-profile">
-                    <span>{{ nombre_usuario }}</span>
-                    <img src="{{ foto_perfil_url }}" alt="Foto de perfil">
-                </div>
-            </div>
-
-            <!-- Bloque para el contenido de la página -->
-            {% block dashboard_content %}
+        <!-- Bloque para el contenido de la página -->
+        {% block dashboard_content %}
             <!-- El contenido específico de la página del dashboard irá aquí -->
-            {% endblock %}
-        </main>
-    </div>
+        {% endblock %}
+    </main>
+</div>
 
-    <!-- Scripts de Argon -->
-    <script src="{% static 'js/core/jquery.min.js' %}"></script>
-    <script src="{% static 'js/core/popper.min.js' %}"></script>
-    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/argon-design-system.js' %}"></script>
+<!-- Scripts de Argon -->
+<script src="{% static 'js/core/jquery.min.js' %}"></script>
+<script src="{% static 'js/core/popper.min.js' %}"></script>
+<script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/argon-design-system.js' %}"></script>
 </body>
 </html>

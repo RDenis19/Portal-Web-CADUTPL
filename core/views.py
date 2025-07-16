@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
-def login(request):
-    return render(request, 'core/login.html')
+
+def login_entrada(request):
+    return render(request, 'core/login_entrada.html')
 
 def index(request):
     return render(request, 'core/index.html')
@@ -21,8 +22,3 @@ def nosotros(request):
 def noticias(request):
     return render(request, 'core/noticias.html')
 
-def haste_socio(request):
-    return render(request, 'core/haste_socio.html')
-
-def login_ingreso(request):
-    return render(request, 'core/login_ingreso.html')

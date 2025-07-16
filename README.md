@@ -21,13 +21,6 @@ core
 │       │   └── custom.css
 │       └── img
 │           ├── logo_CAD.png
-│           ├── logos
-│           │   ├── banco-guayaquil.png
-│           │   ├── banco-loja.jpeg
-│           │   ├── banco-pichincha.jpeg
-│           │   ├── cooperativa-jep.png
-│           │   ├── cuxibamba.png
-│           │   └── hotel-howard.png
 │           └── team
 │               ├── team-1.jpg
 │               ├── team-2.jpg
@@ -39,7 +32,7 @@ core
 │       ├── base.html
 │       ├── creditos.html
 │       ├── index.html
-│       ├── login.html
+│       ├── login_entrada.html
 │       ├── nosotros.html
 │       ├── noticias.html
 │       └── servicios.html
@@ -51,7 +44,6 @@ static
 │   ├── argon-design-system.css
 │   ├── argon-design-system.css.map
 │   ├── argon-design-system.min.css
-│   ├── custom.css
 │   ├── font-awesome.css
 │   ├── nucleo-icons.css
 │   └── nucleo-svg.css
@@ -84,5 +76,19 @@ static
         ├── moment.min.js
         ├── nouislider.min.js
         └── perfect-scrollbar.jquery.min.js
-
-        
+users
+├── __init__.py
+├── __pycache__
+├── admin.py
+├── apps.py
+├── migrations
+├── models.py
+├── templates
+│   └── users
+│       ├── change_password.html
+│       ├── login.html
+│       ├── password_reset_confirm.html
+│       └── password_verify_code.html
+├── tests.py
+├── urls.py
+└── views.py

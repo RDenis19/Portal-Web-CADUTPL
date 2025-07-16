@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "core",
     "users",
     "socio",
+    "dashboard",
 ]
 
 MIDDLEWARE = [

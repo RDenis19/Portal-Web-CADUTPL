@@ -100,11 +100,28 @@ users
 └── views.py
 socio
 ├── __init__.py
+├── __pycache__
 ├── admin.py
 ├── apps.py
 ├── migrations
-├── templates  
 ├── models.py
 ├── templates
+│   └── socio
+│       └── hazte_socio.html
 ├── tests.py
+├── urls.py
+└── views.py
+dashboard
+├── admin.py
+├── apps.py
+├── migrations
+├── models.py
+├── templates
+│   └── dashboard
+│       ├── admin
+│       │   └── dashboardAdmin.html
+│       └── socio
+│           └── dashboardSocio.html
+├── tests.py
+├── urls.py
 └── views.py

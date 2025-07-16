@@ -91,54 +91,53 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-center mt-4">
-                        <div class="col-lg-8">
-                            <!-- Campo Solicitud de Ingreso -->
-                            <div class="d-flex align-items-center justify-content-between p-3 mb-3 rounded"
-                                 style="border: 1px solid #dee2e6;">
-                                <span class="font-weight-bold">1. Solicitud de Ingreso</span>
-                                {{ form.solicitud_ingreso.errors }}
-                                <div>
-                                    <a href="#" class="btn btn-info btn-sm mr-2">Descargar</a>
-                                    <label for="id_solicitud_ingreso" class="btn btn-outline-primary btn-sm mb-0">
-                                        Seleccionar Archivo
-                                        <input type="file" id="id_solicitud_ingreso" name="solicitud_ingreso"
-                                               accept=".pdf" hidden required>
-                                    </label>
-                                </div>
-                            </div>
+                    <!-- Campo Solicitud de Ingreso -->
+                    <div class="d-flex align-items-center justify-content-between p-3 mb-3 rounded mt-4"
+                         style="border: 1px solid #dee2e6;">
+                        <span class="font-weight-bold">1. Solicitud de Ingreso</span>
+                        {{ form.solicitud_ingreso.errors }}
+                        <div>
+                            <a href="{% static 'documentos/solicitud_ingreso.docx' %}" class="btn btn-info btn-sm mr-2"
+                               download>Descargar</a>
+                            <label for="id_solicitud_ingreso" class="btn btn-outline-primary btn-sm mb-0">
+                                Seleccionar Archivo
+                                <input type="file" id="id_solicitud_ingreso" name="solicitud_ingreso"
+                                       accept=".pdf" hidden required>
+                            </label>
+                        </div>
+                    </div>
 
-                            <!-- Campo Designación de Beneficiario -->
-                            <div class="d-flex align-items-center justify-content-between p-3 mb-3 rounded"
-                                 style="border: 1px solid #dee2e6;">
-                                <span class="font-weight-bold">2. Designación de Beneficiario</span>
-                                {{ form.designacion_beneficiario.errors }}
-                                <div>
-                                    <a href="#" class="btn btn-info btn-sm mr-2">Descargar</a>
-                                    <label for="id_designacion_beneficiario"
-                                           class="btn btn-outline-primary btn-sm mb-0">
-                                        Seleccionar Archivo
-                                        <input type="file" id="id_designacion_beneficiario"
-                                               name="designacion_beneficiario" accept=".pdf"
-                                               hidden required>
-                                    </label>
-                                </div>
-                            </div>
+                    <!-- Campo Designación de Beneficiario -->
+                    <div class="d-flex align-items-center justify-content-between p-3 mb-3 rounded"
+                         style="border: 1px solid #dee2e6;">
+                        <span class="font-weight-bold">2. Designación de Beneficiario</span>
+                        {{ form.designacion_beneficiario.errors }}
+                        <div>
+                            <a href="{% static 'documentos/designacion_beneficiario.docx' %}"
+                               class="btn btn-info btn-sm mr-2" download>Descargar</a>
+                            <label for="id_designacion_beneficiario"
+                                   class="btn btn-outline-primary btn-sm mb-0">
+                                Seleccionar Archivo
+                                <input type="file" id="id_designacion_beneficiario"
+                                       name="designacion_beneficiario" accept=".pdf"
+                                       hidden required>
+                            </label>
+                        </div>
+                    </div>
 
-                            <!-- Campo Autorización de Descuento -->
-                            <div class="d-flex align-items-center justify-content-between p-3 rounded"
-                                 style="border: 1px solid #dee2e6;">
-                                <span class="font-weight-bold">3. Autorización de Descuento</span>
-                                {{ form.autorizacion_descuento.errors }}
-                                <div>
-                                    <a href="#" class="btn btn-info btn-sm mr-2">Descargar</a>
-                                    <label for="id_autorizacion_descuento" class="btn btn-outline-primary btn-sm mb-0">
-                                        Seleccionar Archivo
-                                        <input type="file" id="id_autorizacion_descuento" name="autorizacion_descuento"
-                                               accept=".pdf" hidden required>
-                                    </label>
-                                </div>
-                            </div>
+                    <!-- Campo Autorización de Descuento -->
+                    <div class="d-flex align-items-center justify-content-between p-3 rounded"
+                         style="border: 1px solid #dee2e6;">
+                        <span class="font-weight-bold">3. Autorización de Descuento</span>
+                        {{ form.autorizacion_descuento.errors }}
+                        <div>
+                            <a href="{% static 'documentos/autorizacion_descuento.docx' %}"
+                               class="btn btn-info btn-sm mr-2" download>Descargar</a>
+                            <label for="id_autorizacion_descuento" class="btn btn-outline-primary btn-sm mb-0">
+                                Seleccionar Archivo
+                                <input type="file" id="id_autorizacion_descuento" name="autorizacion_descuento"
+                                       accept=".pdf" hidden required>
+                            </label>
                         </div>
                     </div>
 
@@ -147,7 +146,7 @@
                             <button type="submit" class="btn btn-warning btn-lg">Enviar Solicitud</button>
                         </div>
                     </div>
-                    
+
                 </form>
             </div>
         </section>

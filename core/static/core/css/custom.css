@@ -111,10 +111,14 @@ body {
     background-color: #0056b3 !important; /* Un azul más profesional y sólido */
 }
 
+/* --- Estilos para el Logo del Navbar (Corregido) --- */
 .navbar-brand img {
-    height: 45px; /* Ligeramente más grande */
-    margin-right: 0.5rem;
-    filter: brightness(0) invert(1); /* Asegura que el logo blanco se vea */
+    height: 55px !important; /* Hazlo más grande. Puedes cambiar 55px por el tamaño que quieras. */
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05); /* Efecto sutil al pasar el cursor */
 }
 
 .navbar-nav .nav-link {
@@ -227,7 +231,297 @@ body {
     font-weight: 700;
 }
 
+/* --- Estilos para Botones del Navbar --- */
+
+/* Botón Principal: Iniciar Sesión */
+.navbar .btn-primary {
+    background-color: #003E8B;
+    border-color: #003E8B;
+    font-weight: 600;
+}
+
+.navbar .btn-primary:hover {
+    background-color: #002c66; /* Un azul un poco más oscuro al pasar el cursor */
+    border-color: #002c66;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Botón Secundario: Hazte Socio */
+.navbar .btn-outline-primary {
+    color: #FFBA26;
+    border-color: #FFBA26;
+    font-weight: 600;
+}
+
+.navbar .btn-outline-primary:hover {
+    background-color: #FFBA26;
+    color: #003E8B; /* Texto azul oscuro sobre fondo dorado */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
 /* Ajuste para los botones pequeños */
 .btn-sm.btn-icon .btn-inner--icon {
     font-size: 0.875rem;
+}
+
+
+/* =================================================== */
+/* ============= ESTILOS PÁGINA DE LOGIN ============= */
+/* =================================================== */
+
+/* SOLUCIÓN: Reseteamos márgenes y evitamos el desborde */
+body.login-page {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Esto elimina el scroll no deseado */
+}
+
+/* --- Columna Izquierda: Formulario --- */
+.login-form-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.login-logo-top {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0; /* Eliminamos márgenes que puedan interferir */
+    margin-bottom: 2.5rem; 
+}
+.login-logo-top .logo-cad {
+    color: #FFBA26; /* Amarillo/Dorado para "CAD" */
+}
+
+.login-logo-top .logo-utpl {
+    color: #003E8B; /* Azul para "UTPL" */
+}
+.login-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #32325d;
+    line-height: 1.4;
+    margin: 0; /* Eliminamos márgenes que puedan interferir */
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 0; /* El formulario controla su propio espacio */
+}
+
+.form-group .form-control {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    box-shadow: none;
+}
+
+.btn-ingresar {
+    padding: 0.8rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #003E8B;
+    border-color: #003E8B;
+    box-shadow: 0 4px 15px rgba(0, 62, 139, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-ingresar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0, 62, 139, 0.3);
+}
+
+/* --- Logo Decorativo con Imagen Real --- */
+.decorative-logo-container {
+    /* SOLUCIÓN: Eliminamos el margen superior que causaba el problema de altura */
+    margin: 0;
+    margin-top: 3rem; 
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 120px; 
+}
+
+.decorative-logo-image {
+    width: 90px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.decorative-logo-container .circle-1,
+.decorative-logo-container .circle-2,
+.decorative-logo-container .circle-3 {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    transition: all 0.4s ease-out;
+}
+
+.decorative-logo-container .circle-1 {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 186, 38, 0.3);
+    top: 5px;
+    left: 10px;
+}
+
+.decorative-logo-container .circle-2 {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 62, 139, 0.4);
+    bottom: 0;
+    left: -10px;
+}
+
+.decorative-logo-container .circle-3 {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 191, 191, 0.3);
+    top: 0;
+    right: -5px;
+}
+
+.decorative-logo-container:hover .circle-1 {
+    transform: scale(1.1) translate(-5px, 5px);
+}
+
+.decorative-logo-container:hover .circle-2 {
+    transform: scale(1.05) translate(5px, -5px);
+}
+
+/* --- Columna Derecha: Imagen Promocional --- */
+.login-promo-column {
+    background-color: #0A2558;
+}
+
+.promo-box {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+.promo-image {
+    width: 100%;
+    max-height: 450px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4));
+    margin-bottom: 2rem; 
+}
+
+.promo-text {
+    color: #ffffff;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+/* =================================================== */
+/* ============= FIN ESTILOS PÁGINA DE LOGIN ========= */
+/* =================================================== */
+
+/* --- Estilos para la Pestaña Activa del Navbar --- */
+.navbar-nav .nav-item .nav-link {
+    position: relative;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.375rem; /* Bordes redondeados */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #FFBA26 !important; /* Texto en color dorado */
+    background-color: rgba(255, 186, 38, 0.1); /* Fondo dorado muy sutil */
+}
+
+/* Opcional: Línea dorada debajo de la pestaña activa para un toque extra */
+.navbar-nav .nav-item.active .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px; /* Posición de la línea */
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background-color: #FFBA26;
+}
+
+
+
+/* --- Estilos para el Carrusel "Peek-a-boo" --- */
+
+#image-carousel {
+    cursor: pointer;
+    padding: 0 40px; /* Espacio para que se vean mejor las imágenes laterales */
+}
+
+/* El truco para que se vean los lados */
+#image-carousel .carousel-inner {
+    overflow: visible;
+}
+
+#image-carousel .carousel-item {
+    display: block; /* Importante para el efecto */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Ocultamos los items que no son activos ni adyacentes */
+#image-carousel .carousel-item:not(.active):not(.carousel-item-next):not(.carousel-item-prev) {
+    display: none;
+}
+
+/* Mostramos los items adyacentes */
+#image-carousel .carousel-item-next,
+#image-carousel .carousel-item-prev,
+#image-carousel .carousel-item.active {
+    display: block;
+}
+
+/* Los items de los lados son más pequeños y semi-transparentes */
+#image-carousel .carousel-item-next,
+#image-carousel .carousel-item-prev {
+    transform: scale(0.8);
+    opacity: 0.5;
+}
+
+/* Posicionamos el item anterior a la izquierda */
+#image-carousel .carousel-item-prev {
+    transform: translateX(-110%) scale(0.8);
+}
+
+/* Posicionamos el item siguiente a la derecha */
+#image-carousel .carousel-item-next {
+    transform: translateX(110%) scale(0.8);
+}
+
+/* La imagen activa está en su tamaño normal */
+#image-carousel .carousel-item.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Estilo de la imagen */
+#image-carousel .carousel-item img {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+/* Ocultamos los controles por defecto de Bootstrap */
+#image-carousel .carousel-indicators,
+#image-carousel .carousel-control-prev,
+#image-carousel .carousel-control-next {
+    display: none;
 }

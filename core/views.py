@@ -1,7 +1,18 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect
 
 
 def login_entrada(request):
+    if request.method == 'POST':
+        email = request.POST.get('email', '').strip()
+        if email.lower().endswith('@utpl.edu.ec'):
+
+            return redirect('index')
+        else:
+            # Si el correo no es válido, muestra un mensaje de error.
+            messages.error(request, 'El correo debe pertenecer al dominio @utpl.edu.ec')
+            return render(request, 'core/login_entrada.html')
+
     return render(request, 'core/login_entrada.html')
 
 

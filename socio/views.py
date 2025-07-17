@@ -14,7 +14,7 @@ def hazte_socio(request):
             messages.success(request,
                              '¡Tu solicitud ha sido enviada con éxito! Nos pondremos en contacto contigo pronto.')
             # Redirige a la página principal
-            return redirect('core:index')
+            return redirect('index')
     else:
         # Si es una petición GET, se crea un formulario vacío
         form = SolicitudSocioForm()

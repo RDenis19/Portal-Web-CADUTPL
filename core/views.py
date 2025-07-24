@@ -9,7 +9,6 @@ def login_entrada(request):
 
             return redirect('index')
         else:
-            # Si el correo no es válido, muestra un mensaje de error.
             messages.error(request, 'El correo debe pertenecer al dominio @utpl.edu.ec')
             return render(request, 'core/login_entrada.html')
 

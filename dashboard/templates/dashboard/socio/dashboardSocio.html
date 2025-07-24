@@ -4,139 +4,144 @@
 {% block dashboard_title %}Inicio{% endblock %}
 {% block page_title %}Inicio{% endblock %}
 
+{% block extra_css %}
+    <link type="text/css" href="{% static 'dashboard/css/estilos_inicio_socio.css' %}" rel="stylesheet" />
+{% endblock %}
+
+
 {% block dashboard_content %}
-<!-- Banner principal -->
-<div class="card shadow-sm mb-4" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04421a2592?q=80&w=2071&auto=format&fit=crop'); background-size: cover; background-position: center;">
-    <div class="card-body text-white p-5" style="background-color: rgba(5, 42, 98, 0.7);">
-        <h6 class="text-white text-uppercase">CAD UTPL</h6>
-        <h2 class="display-4 text-white">Construyendo un futuro financiero sólido</h2>
-        <p>Somos una institución comprometida con el bienestar financiero de nuestra comunidad universitaria desde 2010.</p>
+
+<div class="card shadow-sm border-0 mb-5 bg-primary">
+    <div class="card-body p-5">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h6 class="text-white text-uppercase">CAD UTPL</h6>
+                <h2 class="display-4 text-white font-weight-bold">Construyendo un futuro financiero sólido</h2>
+                <p class="text-white lead">Somos una institución comprometida con el bienestar financiero de nuestra comunidad universitaria desde 2010.</p>
+                <a href="#!" class="btn btn-neutral">Contactar</a>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block text-center">
+                <img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e7e?q=80&w=2070&auto=format&fit=crop" class="img-fluid opacity-8" style="max-height: 200px; border-radius: .375rem;">
+            </div>
+        </div>
     </div>
 </div>
 
-<!-- Pestañas de información -->
-<div class="nav-wrapper">
-    <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+<div class="nav-wrapper mb-4">
+    <ul class="nav nav-pills nav-pills-custom nav-fill flex-column flex-md-row" id="tabs-main" role="tablist">
         <li class="nav-item">
-            <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Información Institucional</a>
+            <a class="nav-link mb-sm-3 mb-md-0 active" id="tab-info" data-toggle="tab" href="#content-info" role="tab" aria-controls="content-info" aria-selected="true">Información Institucional</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">Indicadores Económicos</a>
+            <a class="nav-link mb-sm-3 mb-md-0" id="tab-indicators" data-toggle="tab" href="#content-indicators" role="tab" aria-controls="content-indicators" aria-selected="false">Indicadores Económicos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-3-tab" data-toggle="tab" href="#tabs-icons-text-3" role="tab" aria-controls="tabs-icons-text-3" aria-selected="false">Principios Financieros</a>
+            <a class="nav-link mb-sm-3 mb-md-0" id="tab-principles" data-toggle="tab" href="#content-principles" role="tab" aria-controls="content-principles" aria-selected="false">Principios Financieros</a>
         </li>
     </ul>
 </div>
-<div class="card shadow">
-    <div class="card-body">
+
+<div class="card shadow border-0">
+    <div class="card-body p-4">
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+            <div class="tab-pane fade show active" id="content-info" role="tabpanel" aria-labelledby="tab-info">
                 <div class="row align-items-center py-4">
-                    <div class="col-md-7">
-                        <h4>Sobre Nosotros</h4>
-                        <p>"La Caja de Ahorro UTPL fue fundada en 2025 con el objetivo de promover la cultura del ahorro y brindar apoyo financiero a nuestra comunidad universitaria. Nacemos de la necesidad de establecer una plataforma que responda a las expectativas de nuestros docentes, ofreciendo soluciones financieras claras y accesibles. Aunque estamos en una etapa de consolidación, nuestra visión es clara: ser el referente de bienestar económico para la comunidad UTPL, fomentando la confianza y la transparencia en cada uno de nuestros servicios."</p>
+                    <div class="col-lg-7">
+                        <h3 class="font-weight-bold">Sobre Nosotros</h3>
+                        <p class="lead text-muted">"La Caja de Ahorro UTPL fue fundada en 2025 con el objetivo de promover la cultura del ahorro y brindar apoyo financiero a nuestra comunidad universitaria. Nacemos de la necesidad de establecer una plataforma que responda a las expectativas de nuestros docentes, ofreciendo soluciones financieras claras y accesibles."</p>
                         <span class="badge badge-primary">200 Miembros</span>
                     </div>
-                    <div class="col-md-5">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887&auto=format&fit=crop" class="img-fluid rounded">
+                    <div class="col-lg-5 text-center">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887&auto=format&fit=crop" class="img-fluid rounded shadow-lg">
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
-                <!-- CONTENIDO DE INDICADORES ECONÓMICOS -->
-                <div class="p-4">
-                    <h4 class="mb-4">Indicadores Actuales de la Caja</h4>
+
+            <div class="tab-pane fade" id="content-indicators" role="tabpanel" aria-labelledby="tab-indicators">
+                <div class="p-3">
+                    <h3 class="mb-4 text-center font-weight-bold">Indicadores Actuales de la Caja</h3>
                     <div class="row">
-                        <!-- Indicador 1 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card card-body shadow-sm text-center">
+                            <div class="card card-body border-0 shadow-sm text-center h-100 indicator-card">
                                 <h6 class="text-muted mb-0">Credi CAD</h6>
-                                <span class="h1 font-weight-bold my-2 text-warning">11%</span>
-                                <small class="text-success font-weight-600">↑ 0.1%</small>
+                                <span class="h2 font-weight-bold my-2 text-primary">11%</span>
+                                <small class="text-success font-weight-600"><i class="fas fa-arrow-up"></i> 0.1%</small>
                             </div>
                         </div>
-                        <!-- Indicador 2 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card card-body shadow-sm text-center">
+                            <div class="card card-body border-0 shadow-sm text-center h-100 indicator-card">
                                 <h6 class="text-muted mb-0">CAD Emergente</h6>
-                                <span class="h1 font-weight-bold my-2 text-warning">11%</span>
-                                <small class="text-success font-weight-600">↑ 0.1%</small>
+                                <span class="h2 font-weight-bold my-2 text-primary">11%</span>
+                                <small class="text-success font-weight-600"><i class="fas fa-arrow-up"></i> 0.1%</small>
                             </div>
                         </div>
-                        <!-- Indicador 3 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card card-body shadow-sm text-center">
+                            <div class="card card-body border-0 shadow-sm text-center h-100 indicator-card">
                                 <h6 class="text-muted mb-0">Dep. Programado</h6>
-                                <span class="h1 font-weight-bold my-2 text-primary">3–5%</span>
-                                <small class="text-success font-weight-600">↑ 0.1%</small>
+                                <span class="h2 font-weight-bold my-2 text-info">3-5%</span>
+                                <small class="text-success font-weight-600"><i class="fas fa-arrow-up"></i> 0.1%</small>
                             </div>
                         </div>
-                        <!-- Indicador 4 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card card-body shadow-sm text-center">
+                            <div class="card card-body border-0 shadow-sm text-center h-100 indicator-card">
                                 <h6 class="text-muted mb-0">CAD Educativo</h6>
-                                <span class="h1 font-weight-bold my-2 text-warning">9.5%</span>
-                                <small class="text-success font-weight-600">↑ 0.1%</small>
+                                <span class="h2 font-weight-bold my-2 text-primary">9.5%</span>
+                                <small class="text-success font-weight-600"><i class="fas fa-arrow-up"></i> 0.1%</small>
                             </div>
                         </div>
-                        <!-- Indicador 5 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card card-body shadow-sm text-center">
+                            <div class="card card-body border-0 shadow-sm text-center h-100 indicator-card">
                                 <h6 class="text-muted mb-0">Dep. a la Vista</h6>
-                                <span class="h1 font-weight-bold my-2 text-primary">1–3%</span>
-                                <small class="text-success font-weight-600">↑ 0.1%</small>
+                                <span class="h2 font-weight-bold my-2 text-info">1-3%</span>
+                                <small class="text-success font-weight-600"><i class="fas fa-arrow-up"></i> 0.1%</small>
                             </div>
                         </div>
-                        <!-- Indicador 6 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card card-body shadow-sm text-center">
+                            <div class="card card-body border-0 shadow-sm text-center h-100 indicator-card">
                                 <h6 class="text-muted mb-0">Dep. Plazo Fijo</h6>
-                                <span class="h1 font-weight-bold my-2 text-primary">8.5%</span>
-                                <small class="text-success font-weight-600">↑ 0.1%</small>
+                                <span class="h2 font-weight-bold my-2 text-info">8.5%</span>
+                                <small class="text-success font-weight-600"><i class="fas fa-arrow-up"></i> 0.1%</small>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
-                <!-- CONTENIDO DE PRINCIPIOS FINANCIEROS -->
-                <div class="p-4">
-                    <div class="row align-items-center">
-                        <div class="col-md-7">
-                            <ul class="list-unstyled">
-                                <li class="media mb-4">
-                                    <div class="icon icon-shape icon-shape-warning rounded-circle mr-4">
-                                        <i class="ni ni-check-bold"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="mb-0">Transparencia</h5>
-                                        Todas nuestras operaciones y políticas son claras y accesibles para nuestros miembros.
-                                    </div>
-                                </li>
-                                <li class="media mb-4">
-                                    <div class="icon icon-shape icon-shape-warning rounded-circle mr-4">
-                                        <i class="ni ni-check-bold"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="mb-0">Seguridad</h5>
-                                        Protegemos sus ahorros con los más altos estándares de seguridad financiera.
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <div class="icon icon-shape icon-shape-warning rounded-circle mr-4">
-                                        <i class="ni ni-check-bold"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <h5 class="mb-0">Crecimiento Sostenible</h5>
-                                        Buscamos el crecimiento financiero a largo plazo, no beneficios a corto plazo.
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-5">
-                            <img src="https://images.unsplash.com/photo-1554224154-260328c04740?q=80&w=2070&auto=format&fit=crop" class="img-fluid rounded shadow">
-                        </div>
+
+            <div class="tab-pane fade" id="content-principles" role="tabpanel" aria-labelledby="tab-principles">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-7">
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-start mb-4">
+                                <div class="icon icon-shape icon-shape-warning text-white rounded-circle mr-4">
+                                    <i class="ni ni-lock-circle-open"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bold">Transparencia</h5>
+                                    <p class="text-muted">Todas nuestras operaciones y políticas son claras y accesibles para nuestros miembros.</p>
+                                </div>
+                            </li>
+                             <li class="d-flex align-items-start mb-4">
+                                <div class="icon icon-shape icon-shape-warning text-white rounded-circle mr-4">
+                                    <i class="ni ni-shield-check-b"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bold">Seguridad</h5>
+                                    <p class="text-muted">Protegemos sus ahorros con los más altos estándares de seguridad financiera.</p>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <div class="icon icon-shape icon-shape-warning text-white rounded-circle mr-4">
+                                    <i class="ni ni-chart-line-up"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bold">Crecimiento Sostenible</h5>
+                                    <p class="text-muted">Buscamos el crecimiento financiero a largo plazo, no beneficios a corto plazo.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <img src="https://images.unsplash.com/photo-1554224154-260328c04740?q=80&w=2070&auto=format&fit=crop" class="img-fluid rounded shadow-lg">
                     </div>
                 </div>
             </div>
@@ -144,59 +149,61 @@
     </div>
 </div>
 
-<!-- Sección de Noticias -->
-<div class="d-flex justify-content-between align-items-center mt-5 mb-3">
-    <h3 class="mb-0">Últimas Noticias</h3>
-    <a href="#" class="btn btn-sm btn-warning">Más noticias</a>
+<div class="mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="font-weight-bold">Últimas Noticias</h2>
+        <a href="#!" class="btn btn-sm btn-warning">Más noticias</a>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm news-card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1579621970795-87f54f12c8a5?q=80&w=2070&auto=format&fit=crop" alt="Nuevas políticas">
+                <div class="card-body pb-0">
+                    <small class="text-muted">15 Mayo, 2025</small>
+                    <h5 class="card-title mt-2">Nuevas políticas de ahorro para miembros</h5>
+                </div>
+                <div class="card-footer bg-white border-0 pt-0">
+                    <a href="#!" class="font-weight-bold text-sm">Ver más →</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm news-card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format&fit=crop" alt="Estrategias de ahorro">
+                <div class="card-body pb-0">
+                    <small class="text-muted">20 Mayo, 2025</small>
+                    <h5 class="card-title mt-2">Estrategias de ahorro efectivas</h5>
+                </div>
+                 <div class="card-footer bg-white border-0 pt-0">
+                    <a href="#!" class="font-weight-bold text-sm">Ver más →</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm news-card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1611095562143-11b0f5b9d297?q=80&w=2070&auto=format&fit=crop" alt="Servicios digitales">
+                <div class="card-body pb-0">
+                    <small class="text-muted">10 Mayo, 2025</small>
+                    <h5 class="card-title mt-2">Actualización de servicios digitales</h5>
+                </div>
+                 <div class="card-footer bg-white border-0 pt-0">
+                    <a href="#!" class="font-weight-bold text-sm">Ver más →</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm news-card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?q=80&w=1932&auto=format&fit=crop" alt="Taller de finanzas">
+                <div class="card-body pb-0">
+                    <small class="text-muted">10 Junio, 2025</small>
+                    <h5 class="card-title mt-2">Taller de Finanzas Personales</h5>
+                </div>
+                 <div class="card-footer bg-white border-0 pt-0">
+                    <a href="#!" class="font-weight-bold text-sm">Ver más →</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="row">
-    <!-- Noticia 1 -->
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Imagen de noticia">
-            <div class="card-body">
-                <h5 class="card-title">Nuevas políticas de ahorro para miembros</h5>
-                <p class="card-text"><small class="text-muted">10 Mayo, 2025</small></p>
-                <p class="card-text">Hemos actualizado nuestras políticas para ofrecer mejores beneficios a nuestros miembros activos.</p>
-                <a href="#" class="font-weight-bold">Ver más →</a>
-            </div>
-        </div>
-    </div>
-    <!-- Noticia 2 -->
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1887&auto=format&fit=crop" alt="Imagen de noticia">
-            <div class="card-body">
-                <h5 class="card-title">Estrategias de ahorro efectivas</h5>
-                <p class="card-text"><small class="text-muted">20 Mayo, 2025</small></p>
-                <p class="card-text">Únase a nuestro webinar gratuito sobre cómo organizar sus ahorros con estrategias simples y efectivas.</p>
-                <a href="#" class="font-weight-bold">Ver más →</a>
-            </div>
-        </div>
-    </div>
-    <!-- Noticia 3 -->
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1586953208448-3151cf797f14?q=80&w=2070&auto=format&fit=crop" alt="Imagen de noticia">
-            <div class="card-body">
-                <h5 class="card-title">Actualización de servicios digitales</h5>
-                <p class="card-text"><small class="text-muted">10 Mayo, 2025</small></p>
-                <p class="card-text">Nuestros servicios digitales han sido actualizados para brindarle una mejor experiencia de usuario.</p>
-                <a href="#" class="font-weight-bold">Ver más →</a>
-            </div>
-        </div>
-    </div>
-    <!-- Noticia 4 -->
-    <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop" alt="Imagen de noticia">
-            <div class="card-body">
-                <h5 class="card-title">Taller de Finanzas Personales ¡Inscríbete ya!</h5>
-                <p class="card-text"><small class="text-muted">15 Junio, 2025</small></p>
-                <p class="card-text">Desde su casa, optimice sus finanzas con nuestro próximo taller exclusivo para socios. ¡Cupos limitados!</p>
-                <a href="#" class="font-weight-bold">Ver más →</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 {% endblock %}

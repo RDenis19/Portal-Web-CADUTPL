@@ -1,0 +1,176 @@
+/* Estilos Profesionales Unificados para Dashboards (v5 - Diseño Azul Responsivo) */
+
+:root {
+    --sidebar-width: 260px;
+    --sidebar-bg: #173d6f; /* Azul oscuro del diseño */
+    --sidebar-text-color: #ffffff;
+    --active-bg: #ffd600; /* Amarillo del botón activo */
+    --active-text: #172b4d;
+    --hover-bg: rgba(255, 255, 255, 0.1);
+    --bg-light: #f6f9fc;
+    --border-color: #e9ecef;
+    --transition-speed: 0.3s;
+}
+
+body {
+    background-color: var(--bg-light);
+    padding-top: 0 !important;
+}
+
+.dashboard-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ============================ */
+/* SIDEBAR (Diseño Azul)        */
+/* ============================ */
+.sidebar {
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    z-index: 1050;
+    transition: transform var(--transition-speed) ease;
+}
+
+.sidebar-header {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.sidebar-header .logo-text {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+.sidebar-header .logo-text:hover {
+    color: #ffffff;
+}
+
+.sidebar .nav {
+    flex-grow: 1;
+}
+
+.sidebar .nav-item {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--sidebar-text-color);
+    border-radius: 0.375rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar .nav-link i {
+    font-size: 1.2rem;
+    min-width: 30px;
+    text-align: center;
+    margin-right: 1rem;
+    opacity: 0.8;
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--hover-bg);
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--active-bg);
+    color: var(--active-text);
+}
+
+.sidebar .nav-link.active i {
+    color: var(--active-text);
+    opacity: 1;
+}
+
+.sidebar-footer {
+    padding-top: 1.5rem;
+}
+
+/* ============================ */
+/* CONTENIDO PRINCIPAL          */
+/* ============================ */
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex-grow: 1;
+    padding: 2rem;
+    transition: margin-left var(--transition-speed) ease;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 50rem;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.user-profile img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 0.75rem;
+}
+
+/* ============================ */
+/* RESPONSIVO                   */
+/* ============================ */
+.sidebar-toggle-mobile {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.is-open {
+        transform: translateX(0);
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .sidebar-toggle-mobile {
+        display: flex;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1051;
+    }
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 1049;
+    }
+    .sidebar-overlay.is-open {
+        display: block;
+    }
+    .top-header {
+        padding-left: 60px;
+    }
+}

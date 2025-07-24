@@ -1,0 +1,55 @@
+/* Estilos para el Dashboard del Socio */
+
+/* --- Pestañas de Información --- */
+.nav-pills-custom .nav-link {
+    color: #6c757d; /* Color de texto gris para pestañas inactivas */
+    background: none;
+    border: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid transparent; /* Borde inferior transparente */
+}
+
+.nav-pills-custom .nav-link.active {
+    color: #173d6f; /* Azul oscuro para la pestaña activa */
+    background: none;
+    border-bottom-color: #173d6f; /* Borde inferior azul para resaltar */
+}
+
+/* --- Tarjetas de Indicadores --- */
+.indicator-card {
+    transition: all 0.2s ease-in-out;
+}
+
+.indicator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* --- Tarjetas de Noticias --- */
+.news-card {
+    border: 1px solid #e9ecef;
+    transition: all 0.2s ease-in-out;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+
+.news-card .card-img-top {
+    height: 180px;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+}
+
+.news-card .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    min-height: 40px; /* Asegura que los títulos tengan una altura consistente */
+}
+
+.news-card .card-text {
+    font-size: 0.875rem;
+    color: #6c757d;
+}

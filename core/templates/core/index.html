@@ -5,93 +5,60 @@
 
 {% block content %}
 <main>
-    <div class="position-relative">
-        <section class="section section-lg section-shaped pb-250">
-            <div class="shape shape-style-1 shape-default">
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    <section class="hero-fullscreen-carousel">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url({% static 'core/img/slider-index/slider1.png' %})"></div>
+                <div class="carousel-item" style="background-image: url({% static 'core/img/slider-index/slider2.png' %})"></div>
+                <div class="carousel-item" style="background-image: url({% static 'core/img/slider-index/slider3.png' %})"></div>
+                <div class="carousel-item" style="background-image: url({% static 'core/img/slider-index/slider4.png' %})"></div>
+                <div class="carousel-item" style="background-image: url({% static 'core/img/slider-index/slider5.png' %})"></div>
             </div>
-            <div class="container py-lg-md d-flex">
-                <div class="col px-0">
-                    <div class="row">
-                        <div class="col-lg-8 text-white">
-                            <h1 class="display-3 text-white">Soluciones ágiles</h1>
-                            <p class="lead text-white">Diseñadas para docentes como TÚ. Apoyamos tus metas con productos financieros pensados para la comunidad académica.</p>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        <div class="hero-overlay">
+            <div class="container text-center">
+                <h1 class="display-2 text-white font-weight-bold">Soluciones Ágiles</h1>
+                <p class="lead text-white mt-3">Diseñadas para Docentes como TÚ. Apoyamos tus Metas con Productos Financieros pensados para la Comunidad Académica.</p>
             </div>
-            <div class="separator separator-bottom separator-skew">
-                <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-                </svg>
-            </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <section class="section section-lg pt-lg-0 mt--200">
+    <section class="section section-lg">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div id="image-carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="{% static 'core/img/slider-index/slider1.png' %}" alt="Ahorro">
+            <div class="row row-grid">
+                <div class="col-lg-4">
+                    <div class="card card-lift--hover shadow border-0">
+                        <div class="card-body py-5">
+                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
+                                <i class="ni ni-money-coins"></i>
                             </div>
-                            <div class="carousel-item">
-                                <img src="{% static 'core/img/slider-index/slider2.png' %}" alt="Inversión">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{% static 'core/img/slider-index/slider3.png' %}" alt="Crédito">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{% static 'core/img/slider-index/slider4.png' %}" alt="Proyectos">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{% static 'core/img/slider-index/slider5.png' %}" alt="Familia">
-                            </div>
+                            <h6 class="text-primary text-uppercase">Ahorros Personalizados</h6>
+                            <p class="description mt-3">Diseñamos según tus metas. Ofrecemos las mejores tasas para que tu dinero crezca seguro y responsable.</p>
+                            <a href="{% url 'ahorros' %}" class="btn btn-primary mt-4">Conoce más</a>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row justify-content-center" style="margin-top: 4rem;">
-                <div class="col-lg-12">
-                    <div class="row row-grid">
-                        <div class="col-lg-4">
-                            <div class="card card-lift--hover shadow border-0">
-                                <div class="card-body py-5">
-                                    <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
-                                        <i class="ni ni-money-coins"></i>
-                                    </div>
-                                    <h6 class="text-primary text-uppercase">Ahorros Personalizados</h6>
-                                    <p class="description mt-3">Diseñamos según tus metas. Ofrecemos las mejores tasas para que tu dinero crezca seguro y responsable.</p>
-                                    <a href="{% url 'ahorros' %}" class="btn btn-primary mt-4">Conoce más</a>
-                                </div>
+                <div class="col-lg-4">
+                    <div class="card card-lift--hover shadow border-0">
+                        <div class="card-body py-5">
+                            <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
+                                <i class="ni ni-check-bold"></i>
                             </div>
+                            <h6 class="text-success text-uppercase">Créditos Accesibles</h6>
+                            <p class="description mt-3">Opciones de crédito con aprobación rápida y tasas de interés ágiles para tus proyectos y necesidades.</p>
+                            <a href="{% url 'creditos' %}" class="btn btn-success mt-4">Conoce más</a>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="card card-lift--hover shadow border-0">
-                                <div class="card-body py-5">
-                                    <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
-                                        <i class="ni ni-check-bold"></i>
-                                    </div>
-                                    <h6 class="text-success text-uppercase">Créditos Accesibles</h6>
-                                    <p class="description mt-3">Opciones de crédito con aprobación rápida y tasas de interés ágiles para tus proyectos y necesidades.</p>
-                                    <a href="{% url 'creditos' %}" class="btn btn-success mt-4">Conoce más</a>
-                                </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card card-lift--hover shadow border-0">
+                        <div class="card-body py-5">
+                            <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
+                                <i class="ni ni-notification-70"></i>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="card card-lift--hover shadow border-0">
-                                <div class="card-body py-5">
-                                    <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
-                                        <i class="ni ni-notification-70"></i>
-                                    </div>
-                                    <h6 class="text-warning text-uppercase">Gestión Transparente</h6>
-                                    <p class="description mt-3">Tu dinero seguro y respaldado por una administración responsable y comprometida contigo.</p>
-                                    <a href="#" class="btn btn-warning mt-4">Conoce más</a>
-                                </div>
-                            </div>
+                            <h6 class="text-warning text-uppercase">Gestión Transparente</h6>
+                            <p class="description mt-3">Tu dinero seguro y respaldado por una administración responsable y comprometida contigo.</p>
+                            <a href="#" class="btn btn-warning mt-4">Conoce más</a>
                         </div>
                     </div>
                 </div>
@@ -99,42 +66,88 @@
         </div>
     </section>
 
-    <section class="section section-lg">
-        </section>
-    <section class="section bg-secondary">
-        </section>
-</main>
+    <section class="section section-dark">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="display-3 text-white">Soluciones en línea</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-feature">
+                        <div class="card-icon"><i class="ni ni-mobile-button"></i></div>
+                        <h5 class="card-title">Simulador de Crédito</h5>
+                        <p class="card-description">Conoce tus cuotas antes de solicitar tu crédito.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-feature">
+                        <div class="card-icon"><i class="ni ni-send"></i></div>
+                        <h5 class="card-title">Retiro y Depósito Fácil</h5>
+                        <p class="card-description">Gestión rápida de tus movimientos financieros desde la plataforma.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-feature">
+                        <div class="card-icon"><i class="ni ni-headphones"></i></div>
+                        <h5 class="card-title">Atención Personalizada</h5>
+                        <p class="card-description">Soporte directo con nuestros canales de atención oficiales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="display-3">Conócenos mucho mas</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-down">
+                    <div class="card-knowledge" style="background-image: url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
+                        <div class="card-knowledge-overlay">
+                            <h4>Nuestros Principios y Valores</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-knowledge" style="background-image: url('https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
+                        <div class="card-knowledge-overlay">
+                            <h4>Nuestro Equipo Directivo</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-yellow">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h2 class="display-3 text-dark">Nuestra Razón de Ser</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 mb-4" data-aos="fade-right">
+                    <div class="card-mission-vision">
+                        <h4>Nuestra Misión</h4>
+                        <p>Nacimos para sanear fuerzas desde cualquier lugar. Ofrecemos cursos de educación financiera y ahorro para ayudarte a tomar las mejores decisiones con tu caja de ahorros.</p>
+                    </div>
+                </div>
+                <div class="col-lg-5 mb-4" data-aos="fade-left" data-aos-delay="100">
+                    <div class="card-mission-vision">
+                        <h4>Nuestra Visión</h4>
+                        <p>Ser reconocidos como la institución financiera líder en el sector docente, caracterizada por su solidez, innovación, transparencia y excelencia en el servicio. Aspiramos a expandir nuestro impacto positivo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
 {% endblock %}
-
-
-{% block javascript %}
-<script>
-// Este código se asegura de que el carrusel se inicialice correctamente
-// y añade la funcionalidad de clic a los lados.
-$(document).ready(function() {
-    var carouselContainer = $('.carousel').parent(); // El contenedor del carrusel
-    
-    // Inicializamos el carrusel con auto-play
-    $('#image-carousel').carousel({
-      interval: 3000, // 3 segundos
-      ride: 'carousel'
-    });
-
-    // Añadimos la función de clic a los lados
-    carouselContainer.on('click', function(e) {
-        var carousel = $('#image-carousel');
-        // Asegurarse de que el clic no fue en una imagen
-        if (e.target.tagName !== 'IMG') {
-            var rect = carousel.get(0).getBoundingClientRect();
-            var clickX = e.clientX - rect.left;
-            
-            if (clickX < rect.width / 2) {
-                carousel.carousel('prev');
-            } else {
-                carousel.carousel('next');
-            }
-        }
-    });
-});
-</script>
-{% endblock javascript %}

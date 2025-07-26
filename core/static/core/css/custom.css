@@ -458,70 +458,704 @@ body.login-page {
     background-color: #FFBA26;
 }
 
+/* --- Estilos para Carrusel Full-Width con Animación --- */
 
-
-/* --- Estilos para el Carrusel "Peek-a-boo" --- */
-
-#image-carousel {
-    cursor: pointer;
-    padding: 0 40px; /* Espacio para que se vean mejor las imágenes laterales */
+/* 1. Contenedor principal a pantalla completa */
+.hero-fullscreen-carousel {
+    position: relative;
+    height: 80vh; /* Altura del 80% de la ventana. Puedes ajustarlo (ej: 70vh, 90vh) */
+    width: 100%;
+    overflow: hidden; /* Evita barras de scroll */
 }
 
-/* El truco para que se vean los lados */
-#image-carousel .carousel-inner {
-    overflow: visible;
+/* 2. El carrusel que actúa como fondo */
+#heroCarousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
-#image-carousel .carousel-item {
-    display: block; /* Importante para el efecto */
-    transition: transform 0.5s ease, opacity 0.5s ease;
+#heroCarousel .carousel-inner,
+#heroCarousel .carousel-item {
+    height: 100%;
 }
 
-/* Ocultamos los items que no son activos ni adyacentes */
-#image-carousel .carousel-item:not(.active):not(.carousel-item-next):not(.carousel-item-prev) {
-    display: none;
+#heroCarousel .carousel-item {
+    background-size: cover;
+    background-position: center;
 }
 
-/* Mostramos los items adyacentes */
-#image-carousel .carousel-item-next,
-#image-carousel .carousel-item-prev,
-#image-carousel .carousel-item.active {
-    display: block;
+/* 3. La animación de Zoom (Efecto Ken Burns) */
+/* Esta animación hace que la imagen de fondo se acerque lentamente. */
+@keyframes kenburns-zoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15); /* Nivel de zoom final */
+    }
 }
 
-/* Los items de los lados son más pequeños y semi-transparentes */
-#image-carousel .carousel-item-next,
-#image-carousel .carousel-item-prev {
-    transform: scale(0.8);
-    opacity: 0.5;
+/* Aplicamos la animación al slide activo del carrusel */
+#heroCarousel .carousel-item.active {
+    animation: kenburns-zoom 15s ease-out forwards; /* Duración de la animación */
 }
 
-/* Posicionamos el item anterior a la izquierda */
-#image-carousel .carousel-item-prev {
-    transform: translateX(-110%) scale(0.8);
+/* 4. La capa de texto superpuesta */
+.hero-overlay {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4); /* Capa oscura para que el texto resalte */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra de texto para máxima legibilidad */
+}
+/* --- Estilo de Neón con Animación de Pulsación --- */
+
+/* 1. Preparamos el título para la transición */
+.hero-overlay h1.display-2 {
+    color: #fff;
+    text-shadow:
+        0 0 3px #fff,
+        0 0 6px #fff,
+        0 0 12px #FFBA26,
+        0 0 18px #FFBA26,
+        0 0 24px #FFBA26,
+        0 0 30px #FFBA26,
+        0 0 36px #FFBA26;
+    transition: text-shadow 0.5s ease-out; /* Animamos la transición del brillo */
 }
 
-/* Posicionamos el item siguiente a la derecha */
-#image-carousel .carousel-item-next {
-    transform: translateX(110%) scale(0.8);
+/* 2. Al pasar el cursor, activamos una animación de pulso */
+.hero-overlay:hover h1.display-2 {
+    animation: neon-pulse 2s ease-in-out infinite;
 }
 
-/* La imagen activa está en su tamaño normal */
-#image-carousel .carousel-item.active {
-    transform: scale(1);
-    opacity: 1;
+/* 3. Definimos la animación de la pulsación */
+@keyframes neon-pulse {
+    0% {
+        text-shadow:
+            0 0 3px #fff,
+            0 0 6px #fff,
+            0 0 12px #FFBA26,
+            0 0 18px #FFBA26,
+            0 0 24px #FFBA26,
+            0 0 30px #FFBA26,
+            0 0 36px #FFBA26;
+    }
+    50% {
+        /* En la mitad de la animación, el brillo es más intenso */
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 20px #FFd700, /* Dorado más brillante */
+            0 0 30px #FFd700,
+            0 0 40px #FFd700,
+            0 0 50px #FFd700,
+            0 0 65px #FFd700;
+    }
+    100% {
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 20px #FFBA26,
+            0 0 30px #FFBA26,
+            0 0 40px #FFBA26,
+            0 0 55px #FFBA26,
+            0 0 75px #FFBA26;
+    }
 }
 
-/* Estilo de la imagen */
-#image-carousel .carousel-item img {
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+/* --- Estilos para las Nuevas Secciones --- */
+
+/* 1. Fondo azul corporativo para la sección */
+.section-dark {
+    background-color: #003E8B; /* Color azul corporativo */
+    padding: 4rem 0;
+}
+
+/* Fondo para la sección "Nuestra Razón de Ser" */
+.section-yellow {
+    background-color: #FFBA26; /* Dorado corporativo */
+    padding: 4rem 0;
+}
+.section-yellow .text-dark {
+    color: #1e2640 !important;
+}
+
+/* 2. Estilos para las tarjetas con el efecto 3D */
+.card-feature {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+}
+.card-feature:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: perspective(1000px) rotateY(15deg) scale(1.05);
+    box-shadow: -10px 10px 30px rgba(0,0,0,0.2);
+}
+
+/* 3. Icono de la tarjeta */
+.card-feature .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* 4. Título de la tarjeta en color dorado */
+.card-feature .card-title {
+    font-weight: 600;
+    color: #FFBA26; /* Color dorado corporativo */
+}
+
+/* 5. Estilo para la nueva descripción */
+.card-feature .card-description {
+    color: #fff;
+    opacity: 0.8; /* Hacemos el texto un poco más sutil */
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+}
+
+/* Tarjetas de la sección "Conócenos mucho más" */
+.card-knowledge {
+    height: 300px;
+    border-radius: 1rem;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+}
+.card-knowledge:hover {
+    transform: scale(1.05);
+}
+.card-knowledge-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    color: #fff;
+}
+.card-knowledge-overlay h4 {
+    font-weight: 600;
+}
+
+/* Tarjetas de la sección "Nuestra Razón de Ser" */
+.card-mission-vision {
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.card-mission-vision h4 {
+    color: #003E8B;
+    font-weight: 600;
+}
+
+/* --- Estilos para la Página de Créditos --- */
+
+/* =================================================== */
+/* 1. SECCIÓN DE BIENVENIDA (CON ANIMACIONES)          */
+/* =================================================== */
+
+.section-hero-creditos {
+    background-color: #003E8B;
+    padding: 6rem 0; /* Aumentamos el padding para dar más espacio a la animación */
+    overflow: hidden; /* Evita que los círculos se salgan y creen scroll */
+    position: relative; /* Clave para posicionar los círculos decorativos */
+}
+
+/* Título 3D Reactivo */
+.section-hero-creditos h1 {
+    transition: transform 0.4s ease-out, text-shadow 0.4s ease-out;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3); /* Sombra base para profundidad */
+}
+
+/* Efecto al pasar el ratón por la sección */
+.section-hero-creditos:hover h1 {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(20px);
+    text-shadow: 2px 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.section-hero-creditos .btn-warning {
+    background-color: #FFBA26;
+    border-color: #FFBA26;
+    color: #003E8B;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.section-hero-creditos .btn-warning:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Contenedor de la imagen principal */
+.section-hero-creditos .text-center {
+    position: relative; /* Necesario para los círculos de fondo */
+    z-index: 2; /* Asegura que la imagen esté por encima de los círculos */
+}
+
+/* CÍRCULOS DECORATIVOS DETRÁS DE LA IMAGEN */
+.section-hero-creditos .text-center::before,
+.section-hero-creditos .text-center::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1; /* Los ponemos detrás de la imagen */
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* Transición suave y elástica */
+}
+
+/* Círculo 1 (Dorado) */
+.section-hero-creditos .text-center::before {
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 186, 38, 0.1); /* Dorado muy sutil */
+    top: -50px;
+    right: -30px;
+}
+
+/* Círculo 2 (Blanco) */
+.section-hero-creditos .text-center::after {
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.08);
+    bottom: -40px;
+    left: 0;
+}
+
+/* ANIMACIÓN DE LOS CÍRCULOS AL PASAR EL RATÓN */
+.section-hero-creditos:hover .text-center::before {
+    transform: translateY(-20px) translateX(15px) scale(1.1);
+}
+
+.section-hero-creditos:hover .text-center::after {
+    transform: translateY(15px) translateX(-10px) scale(1.2);
+}
+
+/* =================================================== */
+/* 2. SECCIÓN DE PRODUCTOS (CON ANIMACIONES Y SOMBRAS) */
+/* =================================================== */
+
+.section-productos {
+    padding: 4rem 0;
+}
+
+/* Contenedor de la imagen del producto */
+.producto-imagen-container {
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Imagen del producto */
+.producto-imagen-container img {
+    /* El filtro drop-shadow crea un resplandor que sigue la silueta de la imagen PNG. */
+    /* ¡Es perfecto para este tipo de efecto! */
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+
+/* --- SOMBRAS DE COLOR Y ANIMACIÓN PARA CADA PRODUCTO --- */
+
+/* Producto 1 y 3 (Sombra Amarilla) */
+.producto-item:nth-child(1) .producto-imagen-container img,
+.producto-item:nth-child(3) .producto-imagen-container img {
+    filter: drop-shadow(0px 10px 20px rgba(255, 186, 38, 0.4));
+}
+
+/* Producto 2 (Sombra Azul) */
+.producto-item:nth-child(2) .producto-imagen-container img {
+    filter: drop-shadow(0px 10px 20px rgba(0, 62, 139, 0.4));
+}
+
+
+/* --- ANIMACIÓN CREATIVA AL PASAR EL RATÓN --- */
+/* Cuando pasas el ratón sobre CUALQUIER parte del item (imagen o texto) */
+.producto-item:hover .producto-imagen-container {
+    transform: translateY(-10px); /* La tarjeta de fondo se eleva un poco */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.producto-item:hover .producto-imagen-container img {
+    transform: rotate(5deg) scale(1.1); /* La imagen se inclina y crece */
+}
+
+/* La sombra se intensifica en el hover */
+.producto-item:nth-child(1):hover .producto-imagen-container img,
+.producto-item:nth-child(3):hover .producto-imagen-container img {
+    filter: drop-shadow(0px 15px 30px rgba(255, 186, 38, 0.6));
+}
+.producto-item:nth-child(2):hover .producto-imagen-container img {
+    filter: drop-shadow(0px 15px 30px rgba(0, 62, 139, 0.6));
+}
+
+
+/* Estilos del texto del producto (sin cambios, pero se incluyen para mantener todo junto) */
+.producto-descripcion {
+    padding-left: 1.5rem; /* Aumentamos la separación entre texto e imagen */
+}
+.producto-descripcion h3 {
+    color: #003E8B;
+}
+.producto-descripcion p {
+    color: #525f7f;
+    font-size: 1.1rem;
+}
+.producto-descripcion .list-unstyled li {
+    color: #32325d;
+    margin-bottom: 0.5rem;
+}
+.producto-descripcion .list-unstyled i {
+    color: #2dce89;
+    margin-right: 0.5rem;
+}
+
+/* =================================================== */
+/* 3. SECCIÓN PROCESO DE SOLICITUD (CON ANIMACIÓN DE OLAS) */
+/* =================================================== */
+
+.section-proceso {
+    background-color: #003E8B;
+    padding: 6rem 0; /* Aumentamos el espacio vertical */
+    position: relative; /* Clave para posicionar las olas */
+    overflow: hidden; /* Evita que las olas generen scroll */
+}
+
+/* Contenedor de los pasos (lo ponemos por encima de las olas) */
+.section-proceso .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- ANIMACIÓN DE OLAS DE FONDO --- */
+
+/* Creamos dos pseudo-elementos que serán nuestras olas */
+.section-proceso::before,
+.section-proceso::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Altura de la ola */
+    background-size: 1000px 150px; /* Ancho y alto de la imagen de la ola */
+    z-index: 1; /* Detrás del contenido */
+    opacity: 0.2; /* Hacemos las olas sutiles */
+}
+
+/* Ola 1 (la de abajo) */
+.section-proceso::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250.4 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23FFFFFF'/%3E%3C/svg%3E");
+    animation: wave-flow 15s linear infinite;
+}
+
+/* Ola 2 (la de arriba, se mueve en otra dirección) */
+.section-proceso::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250.4 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23FFFFFF'/%3E%3C/svg%3E");
+    bottom: 5px; /* La posicionamos un poco más arriba */
+    opacity: 0.25;
+    animation: wave-flow 10s linear infinite reverse; /* Se mueve en reversa y más rápido */
+}
+
+/* Definimos el movimiento de las olas */
+@keyframes wave-flow {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px; /* La ola se desplaza su propio ancho */
+    }
+}
+
+
+/* --- Estilos para los Pasos (sin cambios, pero se incluyen) --- */
+
+.proceso-pasos-container {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+.proceso-pasos-container::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.3) 5px, transparent 5px, transparent 15px);
+    z-index: 1;
+}
+.proceso-paso {
+    position: relative;
+    z-index: 2;
+}
+.paso-circulo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FFBA26;
+    color: #003E8B;
+    font-weight: bold;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    border: 3px solid #fff;
+}
+.proceso-paso h6 {
+    font-weight: 600;
+}
+
+/* =================================================== */
+/* 4. SECCIÓN CTA FINAL (CON BOTÓN ANIMADO)            */
+/* =================================================== */
+
+.section-cta-final {
+    background-color: #FFBA26;
+    padding: 4rem 0;
+}
+
+.section-cta-final h2 {
+    color: #003E8B;
+    font-weight: bold;
+}
+
+/* Estilos del botón */
+.section-cta-final .btn-dark {
+    background-color: #003E8B;
+    border-color: #003E8B;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 15px rgba(0, 44, 102, 0.3);
+    /* 👇 La magia está aquí: aplicamos la animación "pulse-button" 👇 */
+    animation: pulse-button 2s ease-in-out infinite;
+}
+
+/* Definimos la animación de la pulsación */
+@keyframes pulse-button {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0, 44, 102, 0.3);
+    }
+    50% {
+        /* En la mitad de la animación, el botón es más grande y la sombra más difusa */
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(0, 44, 102, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0, 44, 102, 0.3);
+    }
+}
+
+/* Opcional: Detenemos la animación y la hacemos más grande al pasar el cursor */
+.section-cta-final .btn-dark:hover {
+    animation: none; /* Pausamos la animación de pulso */
+    transform: scale(1.1); /* Hacemos el botón aún más grande */
+    box-shadow: 0 8px 30px rgba(0, 44, 102, 0.5);
+}
+
+
+/* --- Estilos para la Página de Ahorros --- */
+
+/* 1. SECCIÓN DE BIENVENIDA */
+.section-hero-ahorros {
+    height: 60vh;
+    min-height: 450px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* --- Estilos para la Página de Ahorros --- */
+
+/* 1. SECCIÓN DE BIENVENIDA CON BURBUJAS */
+.section-hero-ahorros {
+    height: 80vh; /* Aumentamos un poco la altura para más impacto */
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+    background: #003E8B;
+    display: flex; /* La clave: Usamos flexbox para centrar el contenido hijo */
+    align-items: center; /* Centramos verticalmente */
+}
+
+.hero-content-wrapper {
+    position: relative;
+    z-index: 2; /* Nos aseguramos de que esté sobre las burbujas */
     width: 100%;
 }
 
-/* Ocultamos los controles por defecto de Bootstrap */
-#image-carousel .carousel-indicators,
-#image-carousel .carousel-control-prev,
-#image-carousel .carousel-control-next {
-    display: none;
+.section-hero-ahorros h1 {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
+
+.hero-ahorro-img {
+    filter: drop-shadow(0px 15px 25px rgba(0, 22, 51, 0.4));
+}
+
+.section-hero-ahorros .btn-warning {
+    background-color: #FFBA26;
+    border-color: #FFBA26;
+    color: #003E8B;
+    font-weight: bold;
+}
+
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 44, 102, 0.4); /* Capa oscura sutil */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.background-bubbles {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    animation: float-bubble 20s infinite ease-in-out;
+}
+
+@keyframes float-bubble {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-20vh) scale(1.2); opacity: 0; }
+}
+
+/* Tamaños, posiciones y retrasos aleatorios para un efecto natural */
+.bubble.b1 { width: 40px; height: 40px; left: 10%; animation-delay: 0s; animation-duration: 15s; }
+.bubble.b2 { width: 20px; height: 20px; left: 20%; animation-delay: 2s; animation-duration: 12s; }
+.bubble.b3 { width: 50px; height: 50px; left: 35%; animation-delay: 4s; animation-duration: 18s; }
+.bubble.b4 { width: 80px; height: 80px; left: 50%; animation-delay: 0s; animation-duration: 22s; }
+.bubble.b5 { width: 35px; height: 35px; left: 55%; animation-delay: 1s; animation-duration: 16s; }
+.bubble.b6 { width: 45px; height: 45px; left: 65%; animation-delay: 3s; animation-duration: 14s; }
+.bubble.b7 { width: 25px; height: 25px; left: 80%; animation-delay: 2.5s; animation-duration: 20s; }
+.bubble.b8 { width: 60px; height: 60px; left: 90%; animation-delay: 1.5s; animation-duration: 17s; }
+
+
+/* 2. SECCIÓN TIPOS DE AHORRO (CON ANIMACIONES CORREGIDAS) */
+.section-tipos-ahorro {
+    padding: 5rem 0;
+    background-color: #f8f9fe; /* Un fondo gris claro para que resalte */
+}
+.producto-ahorro-item {
+    margin-bottom: 6rem; /* Espacio entre cada tipo de ahorro */
+    align-items: center; /* Asegura que texto e imagen estén centrados verticalmente */
+}
+.producto-ahorro-descripcion h2 {
+    color: #003E8B;
+}
+.producto-ahorro-descripcion p {
+    font-size: 1.1rem;
+    color: #525f7f;
+}
+.producto-ahorro-descripcion.text-right {
+    text-align: right !important;
+}
+
+/* Contenedor de la imagen para centrarla */
+.producto-ahorro-imagen {
+    text-align: center; /* Centra la imagen dentro de su columna */
+}
+
+/* Estilo y tamaño de la imagen */
+.producto-ahorro-imagen img {
+    max-width: 85%; /* Las hacemos un poco más pequeñas */
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Efecto al pasar el ratón */
+.producto-ahorro-item:hover .producto-ahorro-imagen img {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 30px 50px rgba(0,0,0,0.2);
+}
+
+
+/* --- Estilos para la Página "Nosotros" --- */
+
+/* 1. SECCIÓN DE BIENVENIDA CON BURBUJAS */
+.section-hero-nosotros {
+    padding: 8rem 0; /* Espacio para que el texto respire */
+    position: relative;
+    overflow: hidden; /* Importante para que las burbujas no se salgan */
+    background: #003E8B; /* Fondo azul corporativo */
+}
+
+/* Le damos estilo al título y al párrafo dentro de esta sección */
+.section-hero-nosotros h1, .section-hero-nosotros p {
+    position: relative; /* Necesario para que estén por encima de las burbujas */
+    z-index: 2;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Reutilizamos los estilos de las burbujas que ya creamos.
+   No necesitas volver a pegar este código si ya lo tienes de la página de Ahorros.
+   Solo asegúrate de que esté en tu custom.css.
+*/
+.background-bubbles {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+}
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    animation: float-bubble 20s infinite ease-in-out;
+}
+@keyframes float-bubble {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-20vh) scale(1.2); opacity: 0; }
+}
+/* Tamaños, posiciones y retrasos aleatorios */
+.bubble.b1 { width: 40px; height: 40px; left: 10%; animation-delay: 0s; animation-duration: 15s; }
+.bubble.b2 { width: 20px; height: 20px; left: 20%; animation-delay: 2s; animation-duration: 12s; }
+.bubble.b3 { width: 50px; height: 50px; left: 35%; animation-delay: 4s; animation-duration: 18s; }
+.bubble.b4 { width: 80px; height: 80px; left: 50%; animation-delay: 0s; animation-duration: 22s; }
+.bubble.b5 { width: 35px; height: 35px; left: 55%; animation-delay: 1s; animation-duration: 16s; }
+.bubble.b6 { width: 45px; height: 45px; left: 65%; animation-delay: 3s; animation-duration: 14s; }
+.bubble.b7 { width: 25px; height: 25px; left: 80%; animation-delay: 2.5s; animation-duration: 20s; }
+.bubble.b8 { width: 60px; height: 60px; left: 90%; animation-delay: 1.5s; animation-duration: 17s; }

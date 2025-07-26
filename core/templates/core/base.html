@@ -32,6 +32,8 @@
         padding-top: 99px;
       }
     </style>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
 
   <body>
@@ -209,6 +211,14 @@
             $this.parent().addClass("active");
           }
         });
+      });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800, // Duración de la animación en milisegundos
+        once: true,    // La animación solo ocurre una vez por elemento
+        offset: 120,   // La animación se dispara un poco antes de llegar al elemento
       });
     </script>
   </body>

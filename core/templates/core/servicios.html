@@ -4,168 +4,101 @@
 {% block title %}Servicios - CAD UTPL{% endblock %}
 
 {% block content %}
-    <main>
-        <div class="position-relative">
-            <section class="section section-lg bg-gradient-info">
-                <div class="container py-md">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 text-center">
-                            <h1 class="display-3 text-white">Nuestros Servicios</h1>
-                            <p class="lead text-white">Ofrecemos una amplia gama de servicios pensados para facilitar tu
-                                vida financiera y darte el respaldo que necesitas en cada momento.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<main class="servicios-page">
+
+    <section class="section-hero-servicios">
+        <div class="hero-overlay">
+            <div class="container text-center">
+                <h1 class="display-2 text-white font-weight-bold" data-aos="zoom-in">Nuestros Servicios</h1>
+                <p class="lead text-white mt-3" data-aos="fade-up" data-aos-delay="100">
+                    Ofrecemos una amplia gama de servicios pensados para facilitar tu vida financiera y darte el respaldo que necesitas en cada momento.
+                </p>
+            </div>
         </div>
+    </section>
 
-        <section class="section section-lg">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="row row-grid">
-                            <div class="col-lg-4 mb-4">
-                                <div class="card card-lift--hover shadow border-0 h-100">
-                                    <div class="card-body py-5">
-                                        <div class="icon icon-shape icon-shape-primary rounded-circle mb-4">
-                                            <i class="ni ni-send"></i>
-                                        </div>
-                                        <h6 class="text-primary text-uppercase">Transferencias</h6>
-                                        <p class="description mt-3">Envía y recibe dinero de forma segura e instantánea
-                                            entre cuentas propias e interbancarias.</p>
-                                    </div>
-                                </div>
+    <section class="section section-lista-servicios">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="card-servicio">
+                        <div class="card-servicio-frente" style="background-image: url('https://images.unsplash.com/photo-1587560699334-bea93391d69a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
+                            <div class="card-servicio-overlay">
+                                <div class="card-servicio-icono"><i class="ni ni-send"></i></div>
+                                <h5 class="card-servicio-titulo">Transferencias</h5>
                             </div>
-                            <div class="col-lg-4 mb-4">
-                                <div class="card card-lift--hover shadow border-0 h-100">
-                                    <div class="card-body py-5">
-                                        <div class="icon icon-shape icon-shape-success rounded-circle mb-4">
-                                            <i class="ni ni-world-2"></i>
-                                        </div>
-                                        <h6 class="text-success text-uppercase">Pagos en Línea</h6>
-                                        <p class="description mt-3">Paga tus servicios básicos, pensiones y más,
-                                            directamente desde nuestra plataforma digital.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-4">
-                                <div class="card card-lift--hover shadow border-0 h-100">
-                                    <div class="card-body py-5">
-                                        <div class="icon icon-shape icon-shape-warning rounded-circle mb-4">
-                                            <i class="ni ni-bulb-61"></i>
-                                        </div>
-                                        <h6 class="text-warning text-uppercase">Asesoría Financiera</h6>
-                                        <p class="description mt-3">Nuestros expertos te guían para que tomes las
-                                            mejores decisiones de ahorro e inversión.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-4">
-                                <div class="card card-lift--hover shadow border-0 h-100">
-                                    <div class="card-body py-5">
-                                        <div class="icon icon-shape icon-shape-danger rounded-circle mb-4">
-                                            <i class="ni ni-chart-bar-32"></i>
-                                        </div>
-                                        <h6 class="text-danger text-uppercase">Inversiones</h6>
-                                        <p class="description mt-3">Descubre oportunidades de inversión seguras y
-                                            rentables para hacer crecer tu capital.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-4">
-                                <div class="card card-lift--hover shadow border-0 h-100">
-                                    <div class="card-body py-5">
-                                        <div class="icon icon-shape icon-shape-info rounded-circle mb-4">
-                                            <i class="ni ni-umbrella-13"></i>
-                                        </div>
-                                        <h6 class="text-info text-uppercase">Seguros</h6>
-                                        <p class="description mt-3">Protege lo que más importa con nuestra gama de
-                                            seguros de vida, vehicular y más.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 mb-4">
-                                <div class="card card-lift--hover shadow border-0 h-100">
-                                    <div class="card-body py-5">
-                                        <div class="icon icon-shape icon-shape-default rounded-circle mb-4">
-                                            <i class="ni ni-books"></i>
-                                        </div>
-                                        <h6 class="text-default text-uppercase">Educación Financiera</h6>
-                                        <p class="description mt-3">Ofrecemos talleres y cursos para mejorar tu
-                                            conocimiento financiero y empoderarte.</p>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="card-servicio-dorso">
+                            <h5 class="card-servicio-titulo">Transferencias</h5>
+                            <p>Envía y recibe dinero de forma segura e instantánea entre cuentas propias e interbancarias.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section bg-secondary">
-            <div class="container">
-                <div class="row row-grid align-items-center">
-                    <div class="col-md-6">
-                        <div class="card bg-default shadow border-0">
-                            <img src="https://via.placeholder.com/450x350/172b4d/ffffff?text=Beneficios"
-                                 class="card-img-top">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-servicio">
+                        <div class="card-servicio-frente" style="background-image: url('https://images.unsplash.com/photo-1554224155-1696413565d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
+                             <div class="card-servicio-overlay">
+                                <div class="card-servicio-icono"><i class="ni ni-world-2"></i></div>
+                                <h5 class="card-servicio-titulo">Pagos en Línea</h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="pl-md-5">
-                            <h3 class="display-3">Beneficios Adicionales</h3>
-                            <p class="lead">Ser socio de CAD UTPL te da acceso a un mundo de ventajas exclusivas.</p>
-                            <ul class="list-unstyled mt-4">
-                                <li class="py-2">
-                                    <div class="d-flex align-items-center">
-                                        <div>
-                                            <div class="badge badge-circle badge-success mr-3"><i
-                                                    class="ni ni-settings-gear-65"></i></div>
-                                        </div>
-                                        <div><h6 class="mb-0">Acceso a nuestra red de convenios y descuentos.</h6></div>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="d-flex align-items-center">
-                                        <div>
-                                            <div class="badge badge-circle badge-success mr-3"><i
-                                                    class="ni ni-satisfied"></i></div>
-                                        </div>
-                                        <div><h6 class="mb-0">Participación en sorteos y promociones exclusivas.</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="d-flex align-items-center">
-                                        <div>
-                                            <div class="badge badge-circle badge-success mr-3"><i
-                                                    class="ni ni-single-02"></i></div>
-                                        </div>
-                                        <div><h6 class="mb-0">Atención preferencial en todas nuestras oficinas.</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="card-servicio-dorso">
+                            <h5 class="card-servicio-titulo">Pagos en Línea</h5>
+                            <p>Paga tus servicios básicos, pensiones y más, directamente desde nuestra plataforma digital.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section section-lg bg-gradient-primary">
-            <div class="container">
-                <div class="row text-center justify-content-center">
-                    <div class="col-lg-10">
-                        <h2 class="display-3 text-white">Conviértete en Socio Hoy</h2>
-                        <p class="lead text-white">Únete a nuestra creciente comunidad de docentes y empieza a disfrutar
-                            de todos los beneficios que tenemos para ti. El proceso es rápido y sencillo.</p>
-                        <a href="{% url 'socio:hazte_socio' %}" class="btn btn-lg btn-white btn-icon mt-4">
-                            <span class="btn-inner--icon"><i class="ni ni-badge"></i></span>
-                            <span class="btn-inner--text">Únete ahora</span>
-                        </a>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-servicio">
+                        <div class="card-servicio-frente" style="background-image: url('https://images.unsplash.com/photo-1620712943543-2858200e7413?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
+                             <div class="card-servicio-overlay">
+                                <div class="card-servicio-icono"><i class="ni ni-bulb-61"></i></div>
+                                <h5 class="card-servicio-titulo">Asesoría Financiera</h5>
+                            </div>
+                        </div>
+                        <div class="card-servicio-dorso">
+                            <h5 class="card-servicio-titulo">Asesoría Financiera</h5>
+                            <p>Nuestros expertos te guían para que tomes las mejores decisiones de ahorro e inversión.</p>
+                        </div>
                     </div>
                 </div>
+                </div>
+        </div>
+    </section>
+
+    <section class="section bg-secondary">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="display-3 font-weight-bold">Beneficios Adicionales</h2>
+                    <p class="lead text-muted">Ser socio de CAD UTPL te da acceso a un mundo de ventajas exclusivas.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="py-2"><div class="d-flex align-items-center"><div class="icon icon-shape icon-shape-success rounded-circle mr-3"><i class="ni ni-settings-gear-65"></i></div><span>Acceso a nuestra red de convenios y descuentos.</span></div></li>
+                        <li class="py-2"><div class="d-flex align-items-center"><div class="icon icon-shape icon-shape-success rounded-circle mr-3"><i class="ni ni-satisfied"></i></div><span>Participación en sorteos y promociones exclusivas.</span></div></li>
+                        <li class="py-2"><div class="d-flex align-items-center"><div class="icon icon-shape icon-shape-success rounded-circle mr-3"><i class="ni ni-single-02"></i></div><span>Atención preferencial en todas nuestras oficinas.</span></div></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="{% static 'core/img/servicios/beneficios.jpg' %}" class="img-fluid rounded shadow-lg">
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <section class="section section-cta-final-servicios">
+        <div class="container">
+            <div class="row text-center justify-content-center">
+                <div class="col-lg-10" data-aos="zoom-in">
+                    <h2 class="display-3 text-white">Conviértete en Socio Hoy</h2>
+                    <p class="lead text-white">Únete a nuestra creciente comunidad de docentes y empieza a disfrutar de todos los beneficios que tenemos para ti. El proceso es rápido y sencillo.</p>
+                    <a href="{% url 'socio:hazte_socio' %}" class="btn btn-lg btn-warning btn-icon mt-4">
+                        <span class="btn-inner--icon"><i class="ni ni-badge"></i></span>
+                        <span class="btn-inner--text">Únete ahora</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
 {% endblock %}

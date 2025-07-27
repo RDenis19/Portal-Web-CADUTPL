@@ -1159,3 +1159,208 @@ body.login-page {
 .bubble.b6 { width: 45px; height: 45px; left: 65%; animation-delay: 3s; animation-duration: 14s; }
 .bubble.b7 { width: 25px; height: 25px; left: 80%; animation-delay: 2.5s; animation-duration: 20s; }
 .bubble.b8 { width: 60px; height: 60px; left: 90%; animation-delay: 1.5s; animation-duration: 17s; }
+
+
+
+
+
+/* --- Estilos para la Página de Servicios --- */
+
+/* 1. SECCIÓN DE BIENVENIDA CON FONDO ANIMADO */
+.section-hero-servicios {
+    position: relative;
+    height: 60vh;
+    min-height: 450px;
+    overflow: hidden;
+    /* Fondo con gradiente animado */
+    background: linear-gradient(-45deg, #003E8B, #cebe2d, #23c3d5, #FFBA26);
+    background-size: 400% 400%;
+    animation: gradient-background 15s ease infinite;
+}
+
+@keyframes gradient-background {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* 2. SECCIÓN LISTA DE SERVICIOS (TARJETAS CON EFECTO FLIP) */
+.section-lista-servicios {
+    padding: 4rem 0;
+}
+.card-servicio {
+    perspective: 1000px; /* Prepara el escenario 3D */
+    height: 350px;
+    position: relative;
+}
+.card-servicio-frente, .card-servicio-dorso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la cara trasera */
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(255, 230, 0, 0.46);
+}
+.card-servicio-frente {
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.card-servicio-overlay {
+    background: rgba(1, 119, 178, 0.5);
+    border-radius: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1.5rem;
+}
+.card-servicio-icono {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.card-servicio-dorso {
+    background: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    text-align: center;
+}
+.card-servicio:hover .card-servicio-frente {
+    transform: rotateY(-180deg);
+}
+.card-servicio:hover .card-servicio-dorso {
+    transform: rotateY(0deg);
+}
+
+
+/* 3. SECCIÓN BENEFICIOS (IMAGEN CON TAMAÑO CORREGIDO) */
+/* Bootstrap se encarga del tamaño con .img-fluid, no se necesita CSS extra. */
+
+
+/* 4. SECCIÓN CTA FINAL (BOTÓN ANIMADO) */
+.section-cta-final-servicios {
+    background-color: #003E8B;
+    padding: 4rem 0;
+}
+.section-cta-final-servicios .btn-warning {
+    /* Aplicamos la animación de pulso que ya creamos */
+    animation: pulse-button-yellow 2s ease-in-out infinite;
+}
+/* Creamos una versión amarilla de la animación del botón */
+@keyframes pulse-button-yellow {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    50% { transform: scale(1.05); box-shadow: 0 6px 25px rgba(255, 186, 38, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+}
+.section-cta-final-servicios .btn-warning:hover {
+    animation: none;
+    transform: scale(1.1);
+}
+
+
+
+/* --- Estilos para la Página de Noticias --- */
+
+/* 1. SECCIÓN DE BIENVENIDA CON FONDO ANIMADO */
+.section-hero-noticias {
+    position: relative;
+    height: 50vh; /* Un poco más bajo que en otras páginas */
+    min-height: 400px;
+    overflow: hidden;
+    /* Reutilizamos el fondo de gradiente animado de la pág. de Servicios */
+    background: linear-gradient(-45deg, #003E8B, #2dce89, #23a6d5, #FFBA26);
+    background-size: 400% 400%;
+    animation: gradient-background 15s ease infinite;
+}
+
+/* 2. SECCIÓN LISTA DE NOTICIAS */
+.section-lista-noticias {
+    padding: 4rem 0;
+}
+
+/* Botones de Filtro Animados */
+.noticias-filtros .filtro-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px; /* Píldoras */
+    background-color: #e9ecef;
+    color: #525f7f;
+    font-weight: 600;
+    margin: 0.25rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.noticias-filtros .filtro-btn:hover {
+    background-color: #d1d9e6;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.noticias-filtros .filtro-btn.active {
+    background-color: #003E8B;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 62, 139, 0.3);
+}
+
+
+/* Tarjetas de Noticia con Efecto 3D */
+.card-noticia {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    height: 100%;
+    transform-style: preserve-3d;
+}
+.card-noticia:hover {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) scale(1.05);
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.2);
+}
+
+.card-noticia .card-img-top {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    height: 200px;
+    object-fit: cover;
+}
+.card-noticia .card-body {
+    padding: 1.5rem;
+}
+.card-noticia .card-title {
+    font-weight: 700;
+    color: #32325d;
+}
+.card-noticia .card-footer {
+    background: none;
+    border-top: 1px solid #e9ecef;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-noticia .btn-leer-mas {
+    color: #003E8B;
+    font-weight: 600;
+    text-decoration: none;
+}
+.card-noticia .btn-leer-mas:hover {
+    color: #FFBA26;
+}
+
+/* Paginación */
+.pagination .page-item .page-link {
+    border-radius: 50% !important;
+    margin: 0 0.25rem;
+    color: #003E8B;
+}
+.pagination .page-item.active .page-link {
+    background-color: #003E8B;
+    border-color: #003E8B;
+    color: #fff;
+}

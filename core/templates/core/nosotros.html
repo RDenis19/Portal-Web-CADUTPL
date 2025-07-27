@@ -6,17 +6,20 @@
 {% block content %}
     <main>
         <div class="position-relative">
-            <section class="section section-shaped">
-                <div class="shape shape-style-1 shape-gradient-primary">
-                    <span></span><span></span><span></span><span></span><span></span><span></span>
+            <section class="section-hero-nosotros">
+                <div class="background-bubbles">
+                    <div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div>
+                    <div class="bubble b4"></div><div class="bubble b5"></div><div class="bubble b6"></div>
+                    <div class="bubble b7"></div><div class="bubble b8"></div><div class="bubble b9"></div>
+                    <div class="bubble b10"></div>
                 </div>
+
                 <div class="container py-lg-md d-flex">
                     <div class="col px-0">
                         <div class="row align-items-center justify-content-center">
                             <div class="col-lg-8 text-center">
-                                <h1 class="display-3 text-white">Comprometidos con la comunidad docente</h1>
-                                <p class="lead text-white">Somos una institución formada por y para docentes, dedicada a
-                                    ofrecer respaldo financiero y confianza para construir juntos un mejor futuro.</p>
+                                <h1 class="display-3 text-white" data-aos="fade-up">Comprometidos con la comunidad docente</h1>
+                                <p class="lead text-white" data-aos="fade-up" data-aos-delay="200">Somos una institución formada por y para docentes, dedicada a ofrecer respaldo financiero y confianza para construir juntos un mejor futuro.</p>
                             </div>
                         </div>
                     </div>
@@ -27,18 +30,14 @@
         <section class="section section-lg">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
                         <h2 class="display-3">Nuestra Historia</h2>
-                        <p class="lead text-muted">Fundada en 1995 por un grupo de docentes visionarios de la UTPL, CAD
-                            UTPL nació con el propósito de crear un sistema de ahorro y crédito justo, transparente y
-                            adaptado a las necesidades de la comunidad académica.</p>
-                        <p>A lo largo de más de 25 años, hemos crecido junto a nuestros socios, manteniendo siempre
-                            firmes nuestros valores fundacionales de cooperación y servicio. Hoy, somos un pilar
-                            financiero para cientos de docentes y sus familias.</p>
+                        <p class="lead text-muted">Fundada en 1995 por un grupo de docentes visionarios de la UTPL, CAD UTPL nació con el propósito de crear un sistema de ahorro y crédito justo, transparente y adaptado a las necesidades de la comunidad académica.</p>
+                        <p>A lo largo de más de 25 años, hemos crecido junto a nuestros socios, manteniendo siempre firmes nuestros valores fundacionales de cooperación y servicio. Hoy, somos un pilar financiero para cientos de docentes y sus familias.</p>
                     </div>
-                    <div class="col-lg-6">
-                        <img src="https://via.placeholder.com/500x400/172b4d/ffffff?text=Fundadores"
-                             class="img-fluid rounded shadow-lg">
+                    
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                        <img src="{% static 'core/img/nosotros/nosotros1.jpg' %}" class="img-fluid rounded shadow-lg" alt="Nuestra Historia en CAD UTPL">
                     </div>
                 </div>
             </div>
@@ -46,20 +45,19 @@
 
         <section class="section bg-secondary">
             <div class="container">
-                <div class="row justify-content-center text-center mb-5">
+                <div class="row justify-content-center text-center mb-5" data-aos="fade-down">
                     <div class="col-lg-8">
                         <h2 class="display-3">Nuestro Equipo</h2>
-                        <p class="lead text-muted">Conoce a los líderes que trabajan día a día para asegurar la solidez
-                            y el crecimiento de nuestra institución.</p>
+                        <p class="lead text-muted">Conoce a los líderes que trabajan día a día para asegurar la solidez y el crecimiento de nuestra institución.</p>
                     </div>
                 </div>
+                
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
                         <div class="card card-profile shadow border-0">
                             <div class="px-4">
                                 <div class="mt-4 text-center">
-                                    <img src="https://via.placeholder.com/150" class="rounded-circle img-fluid"
-                                         style="width: 120px;">
+                                    <img src="{% static 'core/img/nosotros/nosotros2.jpg' %}" class="rounded-circle img-fluid" style="width: 120px;">
                                 </div>
                             </div>
                             <div class="card-body pt-0 mt-4">
@@ -74,12 +72,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="200">
                         <div class="card card-profile shadow border-0">
                             <div class="px-4">
                                 <div class="mt-4 text-center">
-                                    <img src="https://via.placeholder.com/150" class="rounded-circle img-fluid"
-                                         style="width: 120px;">
+                                    <img src="{% static 'core/img/nosotros/nosotros3.jpg' %}" class="rounded-circle img-fluid" style="width: 120px;">
                                 </div>
                             </div>
                             <div class="card-body pt-0 mt-4">
@@ -94,12 +91,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
                         <div class="card card-profile shadow border-0">
                             <div class="px-4">
                                 <div class="mt-4 text-center">
-                                    <img src="https://via.placeholder.com/150" class="rounded-circle img-fluid"
-                                         style="width: 120px;">
+                                    <img src="{% static 'core/img/nosotros/nosotros4.jpg' %}" class="rounded-circle img-fluid" style="width: 120px;">
                                 </div>
                             </div>
                             <div class="card-body pt-0 mt-4">

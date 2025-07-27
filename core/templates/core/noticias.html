@@ -4,142 +4,131 @@
 {% block title %}Noticias - CAD UTPL{% endblock %}
 
 {% block content %}
-    <main>
-        <section class="section section-lg bg-secondary">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h1 class="display-3">Noticias y Novedades</h1>
-                        <p class="lead text-muted">Mantente al día con los últimos anuncios, eventos y consejos
-                            financieros de nuestra comunidad.</p>
-                    </div>
-                </div>
-                <div class="row justify-content-center mt-5">
-                    <div class="col-lg-10">
-                        <ul class="nav nav-pills nav-pills-primary justify-content-center">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">
-                                    <span class="nav-link-inner--text">Todos</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="nav-link-inner--text">Eventos</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="nav-link-inner--text">Anuncios</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="nav-link-inner--text">Educación Financiera</span>
-                                </a>
-                            </li>
-                        </ul>
+<main class="noticias-page">
+
+    <section class="section-hero-noticias">
+        <div class="hero-overlay">
+            <div class="container text-center">
+                <h1 class="display-2 text-white font-weight-bold" data-aos="zoom-in">Noticias y Novedades</h1>
+                <p class="lead text-white mt-3" data-aos="fade-up" data-aos-delay="100">
+                    Mantente al día con los últimos anuncios, eventos y consejos financieros de nuestra comunidad.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-lista-noticias">
+        <div class="container">
+            <div class="row justify-content-center" data-aos="fade-up">
+                <div class="col-lg-10 text-center">
+                    <div class="noticias-filtros">
+                        <a href="#" class="filtro-btn active">Todos</a>
+                        <a href="#" class="filtro-btn">Eventos</a>
+                        <a href="#" class="filtro-btn">Anuncios</a>
+                        <a href="#" class="filtro-btn">Educación Financiera</a>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section class="section section-lg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card card-lift--hover shadow border-0 h-100">
-                            <img src="https://via.placeholder.com/400x250/5e72e4/ffffff?text=Evento"
-                                 class="card-img-top">
-                            <div class="card-body py-4">
-                                <span class="badge badge-primary badge-pill mb-3">Eventos</span>
-                                <h5 class="card-title">Gran Jornada de Integración Familiar</h5>
-                                <p class="card-text">Revive los mejores momentos de nuestro día de campo, un espacio
-                                    para compartir y fortalecer lazos.</p>
-                                <a href="#" class="btn btn-primary btn-sm">Leer más</a>
-                            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="card card-noticia">
+                        <img src="{% static 'core/img/noticias/noticia1.jpg' %}" class="card-img-top" alt="Evento familiar">
+                        <div class="card-body">
+                            <span class="badge badge-primary badge-pill mb-3">Eventos</span>
+                            <h5 class="card-title">Gran Jornada de Integración Familiar</h5>
+                            <p class="card-text">Revive los mejores momentos de nuestro día de campo, un espacio para compartir y fortalecer lazos.</p>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card card-lift--hover shadow border-0 h-100">
-                            <img src="https://via.placeholder.com/400x250/2dce89/ffffff?text=Anuncio"
-                                 class="card-img-top">
-                            <div class="card-body py-4">
-                                <span class="badge badge-success badge-pill mb-3">Anuncios</span>
-                                <h5 class="card-title">Nuevos Horarios de Atención</h5>
-                                <p class="card-text">A partir del próximo mes, extendemos nuestros horarios para
-                                    brindarte un mejor servicio.</p>
-                                <a href="#" class="btn btn-success btn-sm">Leer más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card card-lift--hover shadow border-0 h-100">
-                            <img src="https://via.placeholder.com/400x250/fb6340/ffffff?text=Finanzas"
-                                 class="card-img-top">
-                            <div class="card-body py-4">
-                                <span class="badge badge-warning badge-pill mb-3">Educación Financiera</span>
-                                <h5 class="card-title">5 Consejos para un Ahorro Inteligente</h5>
-                                <p class="card-text">Aprende estrategias efectivas para hacer crecer tu dinero y
-                                    alcanzar tus metas financieras.</p>
-                                <a href="#" class="btn btn-warning btn-sm">Leer más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card card-lift--hover shadow border-0 h-100">
-                            <img src="https://via.placeholder.com/400x250/11cdef/ffffff?text=Anuncio"
-                                 class="card-img-top">
-                            <div class="card-body py-4">
-                                <span class="badge badge-info badge-pill mb-3">Anuncios</span>
-                                <h5 class="card-title">Lanzamiento de nuestra App Móvil</h5>
-                                <p class="card-text">Gestiona tus productos desde la palma de tu mano. Descubre todas
-                                    las funcionalidades.</p>
-                                <a href="#" class="btn btn-info btn-sm">Leer más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card card-lift--hover shadow border-0 h-100">
-                            <img src="https://via.placeholder.com/400x250/f5365c/ffffff?text=Finanzas"
-                                 class="card-img-top">
-                            <div class="card-body py-4">
-                                <span class="badge badge-danger badge-pill mb-3">Educación Financiera</span>
-                                <h5 class="card-title">¿Cómo funciona el historial crediticio?</h5>
-                                <p class="card-text">Te explicamos todo lo que necesitas saber para mantener un buen
-                                    puntaje y acceder a mejores créditos.</p>
-                                <a href="#" class="btn btn-danger btn-sm">Leer más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card card-lift--hover shadow border-0 h-100">
-                            <img src="https://via.placeholder.com/400x250/8965e0/ffffff?text=Evento"
-                                 class="card-img-top">
-                            <div class="card-body py-4">
-                                <span class="badge badge-default badge-pill mb-3">Eventos</span>
-                                <h5 class="card-title">Webinar: Inversiones para Principiantes</h5>
-                                <p class="card-text">Inscríbete en nuestro próximo seminario en línea y aprende a
-                                    invertir de forma segura y rentable.</p>
-                                <a href="#" class="btn btn-default btn-sm">Leer más</a>
-                            </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Publicado hace 2 días</small>
+                            <a href="#" class="btn-leer-mas">Leer más →</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="row justify-content-center mt-5">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
-                            </li>
-                        </ul>
-                    </nav>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card card-noticia">
+                        <img src="{% static 'core/img/noticias/noticia2.jpg' %}" class="card-img-top" alt="Oficina">
+                        <div class="card-body">
+                            <span class="badge badge-success badge-pill mb-3">Anuncios</span>
+                            <h5 class="card-title">Nuevos Horarios de Atención</h5>
+                            <p class="card-text">A partir del próximo mes, extendemos nuestros horarios para brindarte un mejor servicio y mayor comodidad.</p>
+                        </div>
+                        <div class="card-footer">
+                             <small class="text-muted">Publicado hace 5 días</small>
+                             <a href="#" class="btn-leer-mas">Leer más →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card card-noticia">
+                        <img src="{% static 'core/img/noticias/noticia3.jpg' %}" class="card-img-top" alt="Ahorro">
+                        <div class="card-body">
+                            <span class="badge badge-warning badge-pill mb-3">Educación Financiera</span>
+                            <h5 class="card-title">5 Consejos para un Ahorro Inteligente</h5>
+                            <p class="card-text">Aprende estrategias efectivas para hacer crecer tu dinero y alcanzar tus metas financieras este año.</p>
+                        </div>
+                        <div class="card-footer">
+                             <small class="text-muted">Publicado hace 1 semana</small>
+                             <a href="#" class="btn-leer-mas">Leer más →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card card-noticia">
+                        <img src="{% static 'core/img/noticias/noticia4.jpg' %}" class="card-img-top" alt="App Móvil">
+                        <div class="card-body">
+                            <span class="badge badge-info badge-pill mb-3">Anuncios</span>
+                            <h5 class="card-title">Lanzamiento de nuestra App Móvil</h5>
+                            <p class="card-text">Gestiona tus productos desde la palma de tu mano. Descubre todas las funcionalidades.</p>
+                        </div>
+                        <div class="card-footer">
+                             <small class="text-muted">Publicado hace 2 semanas</small>
+                             <a href="#" class="btn-leer-mas">Leer más →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card card-noticia">
+                        <img src="{% static 'core/img/noticias/noticia5.jpg' %}" class="card-img-top" alt="Historial Crediticio">
+                        <div class="card-body">
+                            <span class="badge badge-danger badge-pill mb-3">Educación Financiera</span>
+                            <h5 class="card-title">¿Cómo funciona el historial crediticio?</h5>
+                            <p class="card-text">Te explicamos todo lo que necesitas saber para mantener un buen puntaje y acceder a mejores créditos.</p>
+                        </div>
+                        <div class="card-footer">
+                             <small class="text-muted">Publicado hace 3 semanas</small>
+                             <a href="#" class="btn-leer-mas">Leer más →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card card-noticia">
+                        <img src="{% static 'core/img/noticias/noticia6.jpg' %}" class="card-img-top" alt="Webinar">
+                        <div class="card-body">
+                            <span class="badge badge-default badge-pill mb-3">Eventos</span>
+                            <h5 class="card-title">Webinar: Inversiones para Principiantes</h5>
+                            <p class="card-text">Inscríbete en nuestro próximo seminario en línea y aprende a invertir de forma segura y rentable.</p>
+                        </div>
+                        <div class="card-footer">
+                             <small class="text-muted">Próximamente</small>
+                             <a href="#" class="btn-leer-mas">Inscribirse →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <div class="row justify-content-center mt-4" data-aos="fade-up">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

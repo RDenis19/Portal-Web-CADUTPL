@@ -73,6 +73,9 @@
             <header class="top-header p-3 border-bottom bg-light">
                 <h1 class="h3 fw-bold text-dark mb-0">{% block page_title %}Página{% endblock %}</h1>
                 <div class="ms-auto"></div>
+            <header class="top-header">
+                <h1 class="h2 font-weight-bold text-dark d-none d-md-block">{% block page_title %}Página{% endblock %}</h1>
+                <div class="ml-md-auto"></div>
             </header>
             <div class="p-4">
                 {% block dashboard_content %}{% endblock %}

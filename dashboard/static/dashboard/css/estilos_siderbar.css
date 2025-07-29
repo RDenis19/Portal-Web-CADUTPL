@@ -1,4 +1,4 @@
-/* dashboard/static/dashboard/css/estilos_siderbar.css */
+/* dashboard/css/estilos_siderbar.css */
 
 /* --- Variables de Diseño --- */
 :root {
@@ -30,14 +30,14 @@
     background-color: var(--sidebar-bg);
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 1.25rem;
+    padding: 1.25rem; /* Padding ligeramente reducido */
     z-index: 1000;
-    transition: width var(--sidebar-transition);
 }
 
 .sidebar .sidebar-header {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Margen reducido */
     text-align: center;
+    flex-shrink: 0; /* Evita que el header se encoja */
 }
 
 .sidebar .logo-text {
@@ -47,12 +47,33 @@
     text-decoration: none;
 }
 
-/* --- Estilos de los Enlaces --- */
+/* --- CONTENEDOR DE ENLACES CON SCROLL --- */
+.sidebar-nav-container {
+    flex-grow: 1; /* Permite que el contenedor crezca */
+    overflow-y: auto; /* MUESTRA EL SCROLL SOLO CUANDO ES NECESARIO */
+    overflow-x: hidden;
+}
+
+/* --- ESTILOS PARA EL SCROLL MODERNO --- */
+.sidebar-nav-container::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar-nav-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.sidebar-nav-container::-webkit-scrollbar-thumb {
+    background-color: var(--sidebar-link-hover-bg);
+    border-radius: 10px;
+    border: 2px solid var(--sidebar-bg);
+}
+
+
+/* --- Estilos de los Enlaces (Más Compactos) --- */
 .sidebar .nav-link {
     display: flex;
     align-items: center;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
+    padding: 0.6rem 1rem; /* Padding reducido */
+    margin-bottom: 0.25rem; /* Margen reducido */
     border-radius: 0.375rem;
     color: var(--sidebar-link-color);
     text-decoration: none;
@@ -72,15 +93,17 @@
 }
 
 .sidebar .nav-link i {
-    font-size: 1.25rem;
+    font-size: 1.1rem; /* Ícono ligeramente más pequeño */
     width: 24px;
     text-align: center;
     margin-right: 1rem;
     flex-shrink: 0;
 }
 
+/* Footer del Sidebar */
 .sidebar .sidebar-footer {
-    margin-top: auto;
+    padding-top: 1rem; /* Espacio para que no se pegue al scroll */
+    flex-shrink: 0; /* Evita que el footer se encoja */
 }
 
 /* --- Lógica para DESKTOP (Menú Fijo) --- */

@@ -1,118 +1,150 @@
 {% extends 'dashboard/socio/base.html' %}
 {% load static %}
 
-{% block dashboard_title %}Simulador{% endblock %}
-{% block page_title %}Simulador de Créditos y Ahorros{% endblock %}
+{% block dashboard_title %}Simulador Profesional{% endblock %}
+{% block page_title %}Simulador de Créditos{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/estilos_simulador_socio.css' %}">
+{% endblock %}
+
 
 {% block dashboard_content %}
-    <div class="row">
-        <div class="col-xl-4 mb-4 mb-xl-0">
-            <div class="card shadow border-0">
-                <div class="card-header">
-                    <h2 class="mb-0">Calcular Crédito</h2>
-                </div>
-                <div class="card-body">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="tipo_credito">Tipo de Crédito</label>
-                            <select class="form-control" id="tipo_credito" name="tipo_credito" required>
-                                <option value="consumo" {% if form_data.tipo_credito == 'consumo' %}selected{% endif %}>
-                                    Consumo (15% anual)
-                                </option>
-                                <option value="vivienda"
-                                        {% if form_data.tipo_credito == 'vivienda' %}selected{% endif %}>Vivienda (9.5%
-                                    anual)
-                                </option>
-                                <option value="vehicular"
-                                        {% if form_data.tipo_credito == 'vehicular' %}selected{% endif %}>Vehicular (12%
-                                    anual)
-                                </option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="monto">Monto a Solicitar ($)</label>
-                            <input type="number" class="form-control" id="monto" name="monto" placeholder="Ej: 5000"
-                                   required step="100" min="100" value="{{ form_data.monto }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="plazo">Plazo (en meses)</label>
-                            <input type="number" class="form-control" id="plazo" name="plazo" placeholder="Ej: 24"
-                                   required min="1" value="{{ form_data.plazo }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="tipo_amortizacion">Tipo de Amortización</label>
-                            <select class="form-control" id="tipo_amortizacion" name="tipo_amortizacion" required>
-                                <option value="francesa"
-                                        {% if form_data.tipo_amortizacion == 'francesa' %}selected{% endif %}>Francesa
-                                    (cuota fija)
-                                </option>
-                                <option value="alemana"
-                                        {% if form_data.tipo_amortizacion == 'alemana' %}selected{% endif %}>Alemana
-                                    (capital fijo)
-                                </option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">
-                            <i class="ni ni-chart-bar-32 mr-2"></i>Calcular
+<div class="row g-4">
+    <div class="col-lg-5">
+        <div class="card h-100">
+            <div class="card-header card-header-custom">
+                <h5 class="mb-0 text-white"><i class="bi bi-pencil-square me-2"></i>Ingresa los Datos</h5>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="tipo_credito" name="tipo_credito" required>
+                            <option value="consumo" {% if form_data.tipo_credito == 'consumo' %}selected{% endif %}>Consumo (15% anual)</option>
+                            <option value="vivienda" {% if form_data.tipo_credito == 'vivienda' %}selected{% endif %}>Vivienda (9.5% anual)</option>
+                            <option value="vehicular" {% if form_data.tipo_credito == 'vehicular' %}selected{% endif %}>Vehicular (12% anual)</option>
+                        </select>
+                        <label for="tipo_credito">Tipo de Crédito</label>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="monto-slider" class="form-label">Monto a Solicitar: <output for="monto-slider" id="monto-output" class="fw-bold text-primary">${{ form_data.monto|default:'5000'|floatformat:0 }}</output></label>
+                        <input type="range" class="form-range" id="monto-slider" min="100" max="50000" step="100" value="{{ form_data.monto|default:'5000' }}">
+                        <input type="hidden" id="monto" name="monto" value="{{ form_data.monto|default:'5000' }}">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="plazo-slider" class="form-label">Plazo: <output for="plazo-slider" id="plazo-output" class="fw-bold text-primary">{{ form_data.plazo|default:'24' }} meses</output></label>
+                        <input type="range" class="form-range" id="plazo-slider" min="1" max="72" step="1" value="{{ form_data.plazo|default:'24' }}">
+                        <input type="hidden" id="plazo" name="plazo" value="{{ form_data.plazo|default:'24' }}">
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="tipo_amortizacion" name="tipo_amortizacion" required>
+                            <option value="francesa" {% if form_data.tipo_amortizacion == 'francesa' %}selected{% endif %}>Francesa (cuota fija)</option>
+                            <option value="alemana" {% if form_data.tipo_amortizacion == 'alemana' %}selected{% endif %}>Alemana (capital fijo)</option>
+                        </select>
+                         <label for="tipo_amortizacion">Sistema de Amortización</label>
+                    </div>
+                    
+                    <div class="d-grid">
+                         <button type="submit" class="btn btn-primary btn-lg mt-3">
+                            <i class="bi bi-calculator-fill me-2"></i>Calcular
                         </button>
-                    </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% if resultados %}
+    <div class="col-lg-7 results-animation">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-bar-chart-line-fill me-2"></i>Resultados de la Simulación</h5>
+            </div>
+            <div class="card-body p-4">
+                
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="card summary-card border-success h-100">
+                             <div class="card-body text-center">
+                                <h6 class="card-title text-muted">Cuota Mensual</h6>
+                                <p class="card-text display-6 text-success-emphasis">${{ resultados.cuota_mensual|floatformat:2 }}</p>
+                                {% if resultados.tipo_amortizacion == 'alemana' %}
+                                    <small class="text-muted">(Primera cuota)</small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card summary-card border-info h-100">
+                             <div class="card-body text-center">
+                                <h6 class="card-title text-muted">Total a Pagar</h6>
+                                <p class="card-text display-6 text-info-emphasis">${{ resultados.total_a_pagar|floatformat:2 }}</p>
+                                <small class="text-muted">Capital + Intereses</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Tabla de Amortización ({{ form_data.tipo_amortizacion|capfirst }})</h6>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-sm">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Mes</th>
+                                <th>Cuota</th>
+                                <th>Interés</th>
+                                <th>Capital</th>
+                                <th>Saldo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for fila in resultados.tabla_amortizacion %}
+                            <tr>
+                                <td>{{ fila.periodo }}</td>
+                                <td>${{ fila.cuota|floatformat:2 }}</td>
+                                <td>${{ fila.interes|floatformat:2 }}</td>
+                                <td>${{ fila.amortizacion_capital|floatformat:2 }}</td>
+                                <td>${{ fila.saldo_pendiente|floatformat:2 }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-
-        {% if resultados %}
-            <div class="col-xl-8">
-                <div class="card shadow border-0">
-                    <div class="card-header bg-transparent">
-                        <h2 class="mb-0">Resultados de la Simulación</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="row text-center mb-4">
-                            <div class="col-md-6">
-                                <div class="alert alert-success">
-                            <span class="alert-inner--text">
-                                <strong>Cuota Mensual:</strong>
-                                ${{ resultados.cuota_mensual|floatformat:2 }}
-                                {% if resultados.tipo_amortizacion == 'alemana' %} (primera cuota) {% endif %}
-                            </span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="alert alert-info">
-                                    <span class="alert-inner--text"><strong>Total a Pagar:</strong> ${{ resultados.total_a_pagar|floatformat:2 }}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="mb-3">Tabla de Amortización ({{ form_data.tipo_amortizacion|capfirst }})</h3>
-                        <div class="table-responsive">
-                            <table class="table table-sm table-striped table-hover align-items-center">
-                                <thead class="thead-light">
-                                <tr>
-                                    <th>Mes</th>
-                                    <th>Cuota</th>
-                                    <th>Interés</th>
-                                    <th>Amortización</th>
-                                    <th>Saldo Pendiente</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for fila in resultados.tabla_amortizacion %}
-                                    <tr>
-                                        <td>{{ fila.periodo }}</td>
-                                        <td>${{ fila.cuota|floatformat:2 }}</td>
-                                        <td>${{ fila.interes|floatformat:2 }}</td>
-                                        <td>${{ fila.amortizacion_capital|floatformat:2 }}</td>
-                                        <td>${{ fila.saldo_pendiente|floatformat:2 }}</td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endif %}
     </div>
+    {% endif %}
+</div>
 {% endblock %}
+
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const setupSlider = (sliderId, outputId, hiddenInputId, prefix = '', suffix = '') => {
+        const slider = document.getElementById(sliderId);
+        const output = document.getElementById(outputId);
+        const hiddenInput = document.getElementById(hiddenInputId);
+        
+        if (!slider) return;
+
+        const updateValue = () => {
+            const formattedValue = new Intl.NumberFormat('es-ES').format(slider.value);
+            output.textContent = `${prefix}${formattedValue}${suffix}`;
+            hiddenInput.value = slider.value;
+        };
+        
+        slider.addEventListener('input', updateValue);
+        updateValue();
+    };
+
+    setupSlider('monto-slider', 'monto-output', 'monto', '$');
+    setupSlider('plazo-slider', 'plazo-output', 'plazo', '', ' meses');
+});
+</script>
+{% endblock extra_js %}

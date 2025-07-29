@@ -34,6 +34,8 @@
     </style>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    {% block extra_css %}{% endblock %}
   </head>
 
   <body>
@@ -221,5 +223,8 @@
         offset: 120,   // La animación se dispara un poco antes de llegar al elemento
       });
     </script>
+    
+    {% block extra_js %}{% endblock %}
+
   </body>
 </html>
